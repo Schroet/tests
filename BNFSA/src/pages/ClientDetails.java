@@ -27,7 +27,7 @@ WebDriver driver;
 		
 	//Accounts
 	By accounts = By.xpath("//a[contains(text(),'FSA Accounts')]");
-	By addaccounts = By.xpath("/html/body/div[1]/div[1]/div[3]/div[2]/div/ul/li[4]/a");
+	By addaccounts = By.xpath("/html/body/div[1]/div[1]/div[3]/div[2]/div/div/div[5]/div/a");
 	By findaccounts = By.xpath("/html/body/div[1]/div[1]/div[3]/div[2]/div/ul/li[4]/a");
 	By editaccounts = By.xpath("/html/body/div[1]/div[1]/div[3]/div[2]/div/ul/li[4]/a");
 	
@@ -124,8 +124,15 @@ WebDriver driver;
 	public void OpenAccounts(){
 		
 	    driver.findElement(accounts).click();
+	    waitmethod.Waitsec();
 	}
 	
+    public void ClickAddNewAccountButton(){
+		
+	    driver.findElement(addaccounts).click();
+	    waitmethod.Waitsec();
+	}
+
     public void OpenClaimTypes(){
 		
 	    driver.findElement(claimtypes).click();

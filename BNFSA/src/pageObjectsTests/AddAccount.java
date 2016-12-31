@@ -1,5 +1,6 @@
 package pageObjectsTests;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -8,6 +9,7 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.LogStatus;
 
 import extentreport.ExtentReport;
+import pages.AddClient;
 import pages.ClientDetails;
 import pages.Clients;
 import pages.LoginPageAdm;
@@ -27,13 +29,16 @@ public class AddAccount {
    	LoginPageAdm login = new LoginPageAdm(driver);
 	Clients client = new Clients(driver);
 	ClientDetails details = new ClientDetails(driver);
+	AddClient rand = new AddClient(driver);
 	
 	login.PreConditions("sys", "sys");
 	client.GotoClient();
-	details.AddnewAccount("FSA 1", "555", "2016", "2016", "2017");
+	details.OpenAccounts();
+	details.ClickAddNewAccountButton();
+	details.AddnewAccount("FSA" + RandomStringUtils.randomNumeric(3), RandomStringUtils.randomNumeric(3), "2016", "01/01/2016", "01/01/2017");
 	
 	
-	if(driver.getPageSource().contains("FSA 1")){
+	if(driver.getPageSource().contains("Action")){
 		logger.log(LogStatus.PASS, "Account was added");
 		logger.endTest();
 		driver.quit();

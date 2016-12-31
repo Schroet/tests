@@ -14,6 +14,8 @@ public class LoginPageAdm {
 	By forgotpass = By.xpath("/html/body/div/div[2]/div/div[1]/div/form/div[4]/input");
 	By contactus = By.xpath("/html/body/div/div[2]/div/div[2]/div/a/b");
 	
+	AddClient waitmethod = new AddClient(driver);
+	
 	public LoginPageAdm(WebDriver driver){
 		
 		this.driver = driver;
@@ -24,6 +26,7 @@ public void PreConditions(String userid, String pass){
 	GetLoginPage();
 	driver.manage().window().maximize();
 	LoginAdminPortal(userid,pass);
+	waitmethod.Waitsec();
 	
 	}	
 	
