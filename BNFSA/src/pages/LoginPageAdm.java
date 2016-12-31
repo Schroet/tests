@@ -19,6 +19,16 @@ public class LoginPageAdm {
 		this.driver = driver;
 	}
 	
+public void PreConditions(String userid, String pass){
+	
+	GetLoginPage();
+	driver.manage().window().maximize();
+	LoginAdminPortal(userid,pass);
+	
+	}	
+	
+	
+	
 public void LoginAdminPortal(String userid, String pass){
 		
 		driver.findElement(username).sendKeys(userid);
@@ -54,7 +64,7 @@ public void ClickContactusButton(){
 
 public void GetLoginPage(){
 	
-	driver.get("http://admin.bnfsa.local/Auth/SignIn");
+	driver.get("https://admin-qa.wtwbenefitsmarketplacefsa.com");
 }
 
 }
