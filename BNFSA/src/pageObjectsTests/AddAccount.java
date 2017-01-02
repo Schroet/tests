@@ -29,7 +29,7 @@ public class AddAccount {
    	LoginPageAdm login = new LoginPageAdm(driver);
 	Clients client = new Clients(driver);
 	ClientDetails details = new ClientDetails(driver);
-	AddClient rand = new AddClient(driver);
+	
 	
 	login.PreConditions("sys", "sys");
 	client.GotoClient();
