@@ -29,9 +29,8 @@ public void PreConditions(String userid, String pass){
 	waitmethod.Waitsec();
 	
 	}	
-	
-	
-	
+
+
 public void LoginAdminPortal(String userid, String pass){
 		
 		driver.findElement(username).sendKeys(userid);

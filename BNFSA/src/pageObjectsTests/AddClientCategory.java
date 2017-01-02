@@ -16,10 +16,10 @@ public class AddClientCategory {
 	
 	@Test
 	public void AddCategory() throws InterruptedException{
-	
+		
 	System.setProperty("webdriver.chrome.driver", "bin/chromedriver.exe");
-    WebDriver driver = new ChromeDriver();
-    
+	WebDriver driver = new ChromeDriver();	
+	
     ExtentReports logger = ExtentReports.get(AddClientCategory.class);
 	logger.init ("bin/QA report.html", false); 
 	logger.startTest("TC4");
