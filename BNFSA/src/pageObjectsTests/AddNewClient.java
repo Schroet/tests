@@ -1,7 +1,5 @@
 package pageObjectsTests;
 
-import java.util.concurrent.TimeUnit;
-
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,7 +10,7 @@ import com.relevantcodes.extentreports.LogStatus;
 import pages.AddClient;
 import pages.Clients;
 import pages.LoginPageAdm;
-import testcases.TestClass;
+
 
 public class AddNewClient {
 	
@@ -77,6 +75,7 @@ public class AddNewClient {
    
     
     driver.quit();
+
 
 	}
 }
