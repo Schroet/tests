@@ -8,7 +8,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.LogStatus;
 
-import extentreport.ExtentReport;
 import pages.AddClient;
 import pages.ClientDetails;
 import pages.Clients;
@@ -35,7 +34,7 @@ public class AddAccount {
 	client.GotoClient();
 	details.OpenAccounts();
 	details.ClickAddNewAccountButton();
-	details.AddnewAccount("FSA" + RandomStringUtils.randomNumeric(3), RandomStringUtils.randomNumeric(3), "2016", "01/01/2016", "01/01/2017");
+	details.AddnewAccount("FSA" + RandomStringUtils.randomNumeric(3), RandomStringUtils.randomNumeric(3), "2017", "01/01/2017", "01/01/2018");
 	
 	
 	if(driver.getPageSource().contains("Action")){

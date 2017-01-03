@@ -103,6 +103,7 @@ public void ClickAddButton(){
 	
     driver.findElement(add).click();
     Waitsec();
+    Waitsec();
 }
 
 public String generateRandomString(int length){

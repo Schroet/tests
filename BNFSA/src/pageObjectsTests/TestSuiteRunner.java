@@ -16,7 +16,7 @@ Test1Login.class,
 DeleteClient.class,
 AddNewClient.class,
 AddClientCategory.class, 
-
+AddAccount.class, 
 
 
 })
