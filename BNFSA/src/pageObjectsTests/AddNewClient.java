@@ -1,7 +1,5 @@
 package pageObjectsTests;
 
-import java.util.concurrent.TimeUnit;
-
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -56,7 +54,7 @@ public class AddNewClient {
     addclient.ClickAddButton();
     
     
-    if(driver.getPageSource().contains("Client with such name already exists")){
+    if(driver.getPageSource().contains("AAA")){
     	logger.log(LogStatus.PASS, "Client was added");
     	logger.endTest();
     	}else{
@@ -65,18 +63,9 @@ public class AddNewClient {
     		logger.endTest();
     	}
     
-    
-    if(driver.getPageSource().contains("Client with such name already exists")){
-    	logger.log(LogStatus.PASS, "Client was added");
-    	logger.endTest();
-    	}else{
-    		
-    		logger.log(LogStatus.FAIL, "Client not added");
-    		logger.endTest();
-    	}
-   
-    
+
     driver.quit();
+
 
 	}
 }

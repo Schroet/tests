@@ -12,10 +12,18 @@ import org.junit.runners.Suite;
 	
 	
 		
-Test1Login.class,
+Test1Login.class, //1
 DeleteClient.class,
 AddNewClient.class,
 AddClientCategory.class, 
+AddAccount.class, 
+UploadEmployeeBulk.class,
+UploadCredits.class,
+AddClaimType.class,
+LinkAccount.class,
+AddClaimLimitUAH.class,
+AddClaimLimitUSD.class,
+SetPasswordEmployee.class,
 
 
 
