@@ -1,7 +1,12 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+
+import com.gargoylesoftware.htmlunit.javascript.host.file.File;
+import com.sun.jna.platform.FileUtils;
 
 public class Clients {
 	
@@ -21,6 +26,14 @@ public class Clients {
 	
 	
 	AddClient waitmethod = new AddClient(driver);
+	
+	
+	/*
+	public void Shot() {
+		 File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		   FileUtils.copyFile(scrFile, new File("C:/testScreenShot.png"));
+		};
+	*/
 	
 	
 	public void GotoClient(){

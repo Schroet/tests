@@ -34,7 +34,7 @@ public class AddAccount {
 	client.GotoClient();
 	details.OpenAccounts();
 	details.ClickAddNewAccountButton();
-	details.AddnewAccount("FSA" + RandomStringUtils.randomNumeric(3), RandomStringUtils.randomNumeric(3), "2017", "01/01/2017", "01/01/2018");
+	details.AddnewAccount("FSA" + RandomStringUtils.randomNumeric(3), "777", "2017", "01/01/2017", "01/01/2018");
 	
 	
 	if(driver.getPageSource().contains("Action")){
