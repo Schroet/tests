@@ -8,7 +8,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.LogStatus;
 
-import extentreport.ExtentReport;
 import pages.AddClient;
 import pages.ClientDetails;
 import pages.Clients;

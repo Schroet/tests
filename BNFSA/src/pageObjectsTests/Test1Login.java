@@ -3,13 +3,11 @@ package pageObjectsTests;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.LogStatus;
 
 import pages.LoginPageAdm;
-import testcases.TestClass;
 
 public class Test1Login {
 	

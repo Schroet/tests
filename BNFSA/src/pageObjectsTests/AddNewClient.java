@@ -12,7 +12,7 @@ import com.relevantcodes.extentreports.LogStatus;
 import pages.AddClient;
 import pages.Clients;
 import pages.LoginPageAdm;
-import testcases.TestClass;
+
 
 public class AddNewClient {
 	
