@@ -2,7 +2,9 @@ package pageObjectsTests;
 
 import java.awt.AWTException;
 
+
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -14,39 +16,44 @@ import pages.ClientDetails;
 import pages.Clients;
 import pages.LoginPageAdm;
 
-public class LinkAccount extends BrowserSettings {
+
+public class ExceptionCatch extends BrowserSettings {
 	
-	
+
 	@Test
-	public void UploadEmployees() throws InterruptedException, AWTException{
-	
+	public void CatchEx(){
+		
 	LaunchBrowser();
-	
-    ExtentReports logger = ExtentReports.get(LinkAccount.class);
+		
+	FakeLogin fake = new FakeLogin(driver);	
+	fake.GetFakeLoginpage();
+		
+		
+/*
+    ExtentReports logger = ExtentReports.get(ExceptionCatch.class);
    	logger.init ("bin/QA report.html", false); 
-   	logger.startTest("TC9");
+   	logger.startTest("TC#");
 	
- 	LoginPageAdm login = new LoginPageAdm(driver);
+   	
+   	LoginPageAdm login = new LoginPageAdm(driver);
 	Clients client = new Clients(driver);
 	ClientDetails details = new ClientDetails(driver);
 	AddClient waitmethod = new AddClient(driver);
 	
 	login.PreConditions("sys", "sys");
-	client.GotoClient();
 	
-	details.LinkFSAaccount();
+	client.GotoClient();  
 	
-	 if(driver.getPageSource().contains("FSA")){
-			logger.log(LogStatus.PASS, "Claim type was linked");
-			logger.endTest();
-			driver.quit();
-	    	
-	    	}else{
-	    		
-	    		logger.log(LogStatus.FAIL, "Claim type not linked");
-	    		logger.endTest();
-	    		driver.quit();
-	    	}
+
+	//client.CatchEx1();
+	
+	//driver.findElement(By.xpath(".//*[@id='tab-details']/div/div[2]/a[1]/i"));
+	
+	
+	
+	waitmethod.Waitsec();  */
+	
+	
 	
 	}
 }

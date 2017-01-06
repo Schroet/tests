@@ -4,6 +4,8 @@ package pageObjectsTests;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
+import memberportalTests.FirstLoginMember;
+
 
 
 
@@ -24,6 +26,7 @@ LinkAccount.class,
 AddClaimLimitUAH.class,
 AddClaimLimitUSD.class,
 SetPasswordEmployee.class,
+//LoginMember.class,
 
 
 

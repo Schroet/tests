@@ -13,13 +13,12 @@ import pages.ClientDetails;
 import pages.Clients;
 import pages.LoginPageAdm;
 
-public class AddAccount {
+public class AddAccount extends BrowserSettings {
 	
 	@Test
 	public void DeleteCl() throws InterruptedException{
 	
-	System.setProperty("webdriver.chrome.driver", "bin/chromedriver.exe");
-    WebDriver driver = new ChromeDriver();
+	LaunchBrowser();
 	
     ExtentReports logger = ExtentReports.get(AddAccount.class);
    	logger.init ("bin/QA report.html", false); 

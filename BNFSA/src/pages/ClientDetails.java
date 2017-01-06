@@ -69,6 +69,8 @@ WebDriver driver;
 	By accountpriorityfield = By.xpath("/html/body/div[15]/div/div/div[2]/div/div[2]/div[1]/span[1]/span/span/span");
 	By accountpriorityvalue = By.xpath("/html/body/div[10]/div/div[2]/ul/li");
 	By accountpriorityok = By.xpath("/html/body/div[15]/div/div/div[3]/button[2]");
+	By receiptuploadfield = By.xpath(".//*[@id='add_claimType_form']/div[5]/div/span/span/span[2]");
+	By receiptuploadoptional = By.xpath(".//*[@id='ReceiptUploadSelect_listbox']/li[2]");
 	
 	// Claim limits
 	
@@ -128,6 +130,10 @@ WebDriver driver;
 		    waitmethod.Waitsec();
 		    driver.findElement(claimtypeclaimantvalue).click();
 		    waitmethod.Waitsec();
+		    driver.findElement(receiptuploadfield).click();
+		    waitmethod.Waitsec();
+		    driver.findElement(receiptuploadoptional).click();
+		    waitmethod.Waitsec();
 		    driver.findElement(claimtypecurrency).click();
 		    waitmethod.Waitsec();
 		    driver.findElement(claimtypecurrencyvalueuah).click();
@@ -170,7 +176,7 @@ WebDriver driver;
 	
 	//Employee bulk
 	By chooseemplfile =  By.xpath("/html/body/div[1]/div[1]/div[3]/div[2]/div/div/div/div[3]/div[2]/form/div[1]/div/div[1]/div");
-	By clickokafterupload =  By.xpath("/html/body/div[4]/div[7]/div/button");
+	By clickokafterupload =  By.xpath("html/body/div[4]/div[7]/div/button");
 	By clicsubmitemp=  By.xpath("/html/body/div[1]/div[1]/div[3]/div[2]/div/div/div/div[3]/div[2]/form/div[3]/div/button");
 	
 	

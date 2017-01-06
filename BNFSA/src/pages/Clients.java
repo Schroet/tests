@@ -1,22 +1,25 @@
 package pages;
 
+import java.util.NoSuchElementException;
 import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.LogStatus;
 
-import com.gargoylesoftware.htmlunit.javascript.host.file.File;
-import com.sun.jna.platform.FileUtils;
+
+
+import pageObjectsTests.UploadCredits;
 
 public class Clients {
 	
 	WebDriver driver;
 	
+
 	public Clients(WebDriver driver){
 		
 		this.driver = driver;
 	}
-	
+
 	By client = By.partialLinkText("AAA");	
 	By addclient = By.xpath("/html/body/div[1]/div[1]/div[3]/div[2]/div[3]/a");
 	By editclient = By.xpath("/html/body/div[1]/div[1]/div[3]/div[2]/div[3]/div/table/tbody/tr[1]/td[5]/a");
@@ -38,6 +41,7 @@ public class Clients {
 	
 	public void GotoClient(){
 		
+		waitmethod.Waitsec();
 	    driver.findElement(client).click();
 	}	
 	
@@ -69,5 +73,33 @@ public void ClickLogout(){
     driver.findElement(logout).click();
 }
 
+/*
+public void CatchEx(){
+
+try {
+   driver.findElement(By.xpath(".//*[@id='tab-details']/div/div[2]/a[1]/p"));
+   logger.log(LogStatus.PASS, "Exception is catched");
+   logger.endTest();
+	driver.quit();
+	
+} catch (NoSuchElementException e) {
+	
+	logger.log(LogStatus.FAIL, "Exception is not catched");
+	logger.endTest();
+	driver.quit();
+}
+
+}
+
+public void CatchEx1(){
+try
+{
+    driver.findElement(By.xpath(".//*[@id='tab-details']/div/div[2]/a[1]/p"));
+} 
+catch(NoSuchElementException e)
+{
+    System.out.println("Element does not exist!");
+} 
+     */
 	
 }

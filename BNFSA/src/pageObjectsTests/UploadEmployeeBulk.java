@@ -7,29 +7,23 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 
 import org.junit.Test;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.remote.Augmenter;
-
-import com.gargoylesoftware.htmlunit.javascript.host.file.File;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.LogStatus;
-import com.sun.jna.platform.FileUtils;
+
 
 import pages.AddClient;
 import pages.ClientDetails;
 import pages.Clients;
 import pages.LoginPageAdm;
 
-public class UploadEmployeeBulk {
+public class UploadEmployeeBulk extends BrowserSettings {
 	
 	@Test
 	public void UploadEmployees() throws InterruptedException, AWTException{
 		
-		System.setProperty("webdriver.chrome.driver", "bin/chromedriver.exe");
-	    WebDriver driver = new ChromeDriver();
+		LaunchBrowser();
 		
 	    ExtentReports logger = ExtentReports.get(UploadEmployeeBulk.class);
 	   	logger.init ("bin/QA report.html", false); 

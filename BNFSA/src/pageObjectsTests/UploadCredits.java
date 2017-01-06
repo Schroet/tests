@@ -18,13 +18,12 @@ import pages.ClientDetails;
 import pages.Clients;
 import pages.LoginPageAdm;
 
-public class UploadCredits {
+public class UploadCredits extends BrowserSettings {
 	
 	@Test
 	public void UploadEmployees() throws InterruptedException, AWTException{
 	
-	System.setProperty("webdriver.chrome.driver", "bin/chromedriver.exe");
-    WebDriver driver = new ChromeDriver();
+	LaunchBrowser();
 	
     ExtentReports logger = ExtentReports.get(UploadCredits.class);
    	logger.init ("bin/QA report.html", false); 
