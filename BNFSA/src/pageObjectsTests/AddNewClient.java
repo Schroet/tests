@@ -12,13 +12,12 @@ import pages.Clients;
 import pages.LoginPageAdm;
 
 
-public class AddNewClient {
+public class AddNewClient extends BrowserSettings {
 	
 	@Test
 	public void Login2AdminPortal() throws InterruptedException{	
 		
-	System.setProperty("webdriver.chrome.driver", "bin/chromedriver.exe");
-	WebDriver driver = new ChromeDriver();	
+	LaunchBrowser();
 	    
 	ExtentReports logger = ExtentReports.get(AddNewClient.class);
 	logger.init ("bin/QA report.html", false); 

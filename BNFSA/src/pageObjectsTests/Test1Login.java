@@ -3,20 +3,18 @@ package pageObjectsTests;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.LogStatus;
 
 import pages.LoginPageAdm;
 
-public class Test1Login {
+public class Test1Login extends BrowserSettings {
 	
 @Test
 public void Login2AdminPortal(){
 	
-	System.setProperty("webdriver.chrome.driver", "bin/chromedriver.exe");
-    WebDriver driver = new ChromeDriver();	
-    
+	LaunchBrowser();
+
     ExtentReports logger = ExtentReports.get(Test1Login.class);
  	logger.init ("bin/QA report.html", true); 
 	logger.startTest("TC1");
@@ -25,8 +23,6 @@ public void Login2AdminPortal(){
 	
     driver.manage().window().maximize();
     login.GetLoginPage();
-    
-    
     
     login.TypeUsername();
     login.TypePassword();

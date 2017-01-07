@@ -15,13 +15,12 @@ import pages.ClientDetails;
 import pages.Clients;
 import pages.LoginPageAdm;
 
-public class AddClaimLimitUAH {
+public class AddClaimLimitUAH extends BrowserSettings {
 	
 	@Test
 	public void UploadEmployees() throws InterruptedException, AWTException{
 	
-	System.setProperty("webdriver.chrome.driver", "bin/chromedriver.exe");
-    WebDriver driver = new ChromeDriver();
+	LaunchBrowser();
 	
     ExtentReports logger = ExtentReports.get(AddClaimLimitUAH.class);
    	logger.init ("bin/QA report.html", false); 

@@ -10,14 +10,13 @@ import com.relevantcodes.extentreports.LogStatus;
 import pages.Clients;
 import pages.LoginPageAdm;
 
-public class DeleteClient {
+public class DeleteClient extends BrowserSettings {
 	
 	
 	@Test
 	public void DeleteCl() throws InterruptedException{
 	
-	System.setProperty("webdriver.chrome.driver", "bin/chromedriver.exe");
-    WebDriver driver = new ChromeDriver();
+	LaunchBrowser();
     
     ExtentReports logger = ExtentReports.get(DeleteClient.class);
 	logger.init ("bin/QA report.html", false); 

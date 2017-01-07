@@ -12,18 +12,17 @@ import pages.ClientDetails;
 import pages.Clients;
 import pages.LoginPageAdm;
 
-public class AddClientCategory {
+public class AddClientCategory extends BrowserSettings {
 	
 	@Test
-	public void AddCategory() throws InterruptedException{
+	public void AddCategory() throws Exception{
 		
-	System.setProperty("webdriver.chrome.driver", "bin/chromedriver.exe");
-	WebDriver driver = new ChromeDriver();	
+	LaunchBrowser();	
 	
     ExtentReports logger = ExtentReports.get(AddClientCategory.class);
 	logger.init ("bin/QA report.html", false); 
 	logger.startTest("TC4");
-	
+	 
 	LoginPageAdm login = new LoginPageAdm(driver);
 	Clients client = new Clients(driver);
 	ClientDetails details = new ClientDetails(driver);
@@ -34,7 +33,7 @@ public class AddClientCategory {
 	login.LoginAdminPortal("sys", "sys");
 	
 	client.GotoClient();
-	
+
 	details.AddnewCategory("cat");
 	
 	if(driver.getPageSource().contains("Category with same Name already exists.")){
@@ -53,6 +52,7 @@ public class AddClientCategory {
     		logger.endTest();		
     	}
 
+	
 	driver.quit();
 	
 	}

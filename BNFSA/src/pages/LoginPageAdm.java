@@ -66,7 +66,7 @@ public void ClickContactusButton(){
 
 public void GetLoginPage(){
 	
-	driver.get("https://admin-qa.wtwbenefitsmarketplacefsa.com/Auth/SignIn?ReturnUrl=%2F");
+	driver.get("https://admin.wtwbenefitsmarketplacefsa.com/Auth/SignIn");
 }
 
 }
