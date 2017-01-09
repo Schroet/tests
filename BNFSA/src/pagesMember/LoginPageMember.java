@@ -27,8 +27,8 @@ AddClient waitmethod = new AddClient(driver);
 
 public void FirstLoginMemberPortal(String userid, String pass){
 	
+	driver.manage().window().maximize();
     GetLoginPageMember();
-    driver.manage().window().maximize();
 	driver.findElement(login).sendKeys(userid);
 	driver.findElement(passw).sendKeys(pass);
 	waitmethod.Waitsec();
@@ -61,7 +61,7 @@ public void PreConditionsMember(String userid, String pass){
 
 public void GetLoginPageMember(){
 	
-	driver.get("http://portal.bnfsa.local/#/login");
+	driver.get("https://portal-qa.wtwbenefitsmarketplacefsa.com");
 }
 
 }

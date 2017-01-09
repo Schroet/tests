@@ -3,10 +3,12 @@ package pageObjectsTests;
 import java.awt.AWTException;
 
 import org.junit.Test;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import pages.AddClient;
@@ -16,16 +18,17 @@ import pages.LoginPageAdm;
 
 public class LinkAccount extends BrowserSettings {
 	
+	private static ExtentReports extent;
 	
 	@Test
 	public void UploadEmployees() throws InterruptedException, AWTException{
 	
 	LaunchBrowser();
 	
-    ExtentReports logger = ExtentReports.get(LinkAccount.class);
-   	logger.init ("bin/QA report.html", false); 
-   	logger.startTest("TC9");
+	extent = new ExtentReports("bin/QA report.html", false);
+	ExtentTest test = extent.startTest("TC9");
 	
+	 try {
  	LoginPageAdm login = new LoginPageAdm(driver);
 	Clients client = new Clients(driver);
 	ClientDetails details = new ClientDetails(driver);
@@ -37,16 +40,18 @@ public class LinkAccount extends BrowserSettings {
 	details.LinkFSAaccount();
 	
 	 if(driver.getPageSource().contains("FSA")){
-			logger.log(LogStatus.PASS, "Claim type was linked");
-			logger.endTest();
-			driver.quit();
-	    	
+			test.log(LogStatus.PASS, "Claim type was linked");
+			extent.endTest(test);
+			
 	    	}else{
 	    		
-	    		logger.log(LogStatus.FAIL, "Claim type not linked");
-	    		logger.endTest();
-	    		driver.quit();
+	    		test.log(LogStatus.FAIL, "Claim type not linked");
+	    		extent.endTest(test);
 	    	}
-	
+	 
+	 } catch (NoSuchElementException e) { test.log(LogStatus.ERROR, "Test not executed");	
+		};
+	 extent.flush();
+	 driver.quit();
 	}
 }

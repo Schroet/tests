@@ -3,10 +3,13 @@ package pageObjectsTests;
 import java.awt.AWTException;
 
 import org.junit.Test;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
 
 import pages.AddClient;
 import pages.ClaimLimitsPage;
@@ -16,15 +19,17 @@ import pages.LoginPageAdm;
 
 public class SetPasswordEmployee extends BrowserSettings {
 	
+	private static ExtentReports extent;
+	
 	@Test
 	public void UploadEmployees() throws InterruptedException, AWTException{
 	
 	LaunchBrowser();
 	
-    ExtentReports logger = ExtentReports.get(SetPasswordEmployee.class);
-   	logger.init ("bin/QA report.html", false); 
-   	logger.startTest("TC12");
+	extent = new ExtentReports("bin/QA report.html", false);
+	ExtentTest test = extent.startTest("TC12");
 	
+	try {
  	LoginPageAdm login = new LoginPageAdm(driver);
 	Clients client = new Clients(driver);
 	ClientDetails details = new ClientDetails(driver);
@@ -37,7 +42,12 @@ public class SetPasswordEmployee extends BrowserSettings {
 	details.ClickMemberButton();
 	details.SetPass("123", "123");
 	
+	} catch (NoSuchElementException e) { test.log(LogStatus.ERROR, "Test not executed");	
+	};
+	
+	
+	extent.endTest(test);
+	extent.flush();
 	driver.quit();
-
 }
 }

@@ -1,11 +1,9 @@
 package pageObjectsTests;
 
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
+import org.openqa.selenium.NoSuchElementException;
 import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import pages.ClientDetails;
@@ -14,45 +12,48 @@ import pages.LoginPageAdm;
 
 public class AddClientCategory extends BrowserSettings {
 	
+	private static ExtentReports extent;
+	
 	@Test
 	public void AddCategory() throws Exception{
 		
 	LaunchBrowser();	
 	
-    ExtentReports logger = ExtentReports.get(AddClientCategory.class);
-	logger.init ("bin/QA report.html", false); 
-	logger.startTest("TC4");
+	extent = new ExtentReports("bin/QA report.html", false);
+	ExtentTest test = extent.startTest("TC4");
 	 
 	LoginPageAdm login = new LoginPageAdm(driver);
 	Clients client = new Clients(driver);
 	ClientDetails details = new ClientDetails(driver);
 	
+	try {
+	
 	login.GetLoginPage();
 	driver.manage().window().maximize();
-	
 	login.LoginAdminPortal("sys", "sys");
-	
 	client.GotoClient();
-
 	details.AddnewCategory("cat");
 	
 	if(driver.getPageSource().contains("Category with same Name already exists.")){
-    	logger.log(LogStatus.PASS, "Category was added");
-    	logger.endTest();
+		test.log(LogStatus.PASS, "Category was added");
+		extent.endTest(test);
     	}else{
     		details.ClickOkCategoryButton();		
     	}
 	
 	if(driver.getPageSource().contains("cat")){
-    	logger.log(LogStatus.PASS, "Category was added");
-    	logger.endTest();
+    	test.log(LogStatus.PASS, "Category was added");
+    	extent.endTest(test);
     	}else{
     		
-    		logger.log(LogStatus.FAIL, "Category not added");
-    		logger.endTest();		
+    		test.log(LogStatus.FAIL, "Category not added");
+    		extent.endTest(test);		
     	}
-
 	
+	} catch (NoSuchElementException e) { test.log(LogStatus.ERROR, "Test not executed");	
+	};
+
+	extent.flush();
 	driver.quit();
 	
 	}

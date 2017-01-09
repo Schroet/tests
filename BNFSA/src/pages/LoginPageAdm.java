@@ -23,8 +23,8 @@ public class LoginPageAdm {
 	
 public void PreConditions(String userid, String pass){
 	
-	GetLoginPage();
 	driver.manage().window().maximize();
+	GetLoginPage();
 	LoginAdminPortal(userid,pass);
 	waitmethod.Waitsec();
 	
@@ -66,7 +66,7 @@ public void ClickContactusButton(){
 
 public void GetLoginPage(){
 	
-	driver.get("https://admin.wtwbenefitsmarketplacefsa.com/Auth/SignIn");
+	driver.get("https://admin-qa.wtwbenefitsmarketplacefsa.com");
 }
 
 }

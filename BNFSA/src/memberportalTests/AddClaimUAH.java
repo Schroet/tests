@@ -3,10 +3,13 @@ package memberportalTests;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 import pageObjectsTests.BrowserSettings;
 import pages.AddClient;
@@ -16,42 +19,49 @@ import pagesMember.Summary;
 
 public class AddClaimUAH extends BrowserSettings {
 	
+	private static ExtentReports extent;
+	
 	@Test
 	public void UploadEmployees(){
 	
 	LaunchBrowser();
 	
-	ExtentReports logger = ExtentReports.get(AddClaimUAH.class);
-   	logger.init ("bin/QA report.html", false); 
-   	logger.startTest("TC-Member-2");
+	extent = new ExtentReports("bin/QA report.html", false);
+	ExtentTest test = extent.startTest("TCM-2");
    	
    	
    	LoginPageMember loginmember = new LoginPageMember(driver);
    	Summary sumpage = new Summary(driver);
    	AddClaimPage addclaimpage = new AddClaimPage(driver);
    	AddClient waitmethod = new AddClient(driver);
-   	WebDriverWait wait = new WebDriverWait(driver, 10);
    	
-   	
+	try {
    	loginmember.PreConditionsMember("fsa@yopmail.com", "123");
+   	//wait.until(ExpectedConditions.elementToBeClickable(By.id("addClaimButton")));
    	
-   	wait.until(ExpectedConditions.elementToBeClickable(By.id("addClaimButton")));
+    WebDriverWait wait = new WebDriverWait(driver, 10);
+    WebElement element = wait.until(
+    ExpectedConditions.visibilityOfElementLocated(By.id("addClaimButton")));
+    
    	sumpage.ClickBtnAddnewClaim();
-   	
    	addclaimpage.AddNewClaimUAH();
    	waitmethod.Waitsec();
    	
    	
     if(driver.getPageSource().contains("Summary")){
-  		logger.log(LogStatus.PASS, "Claim added");
-  		logger.endTest();
-  		driver.quit();
+  		test.log(LogStatus.PASS, "Claim added");
+  		extent.endTest(test);
+  		
       	
       	}else{
       		
-      		logger.log(LogStatus.FAIL, "Claim not added");
-      		logger.endTest();
-      		driver.quit();
+      		test.log(LogStatus.FAIL, "Claim not added");
+      		extent.endTest(test);
       	}
+    
+	}catch (NoSuchElementException e) { test.log(LogStatus.ERROR, "Test not executed");	
+    }; 
+    extent.flush();
+	driver.quit();
 	}
 }
