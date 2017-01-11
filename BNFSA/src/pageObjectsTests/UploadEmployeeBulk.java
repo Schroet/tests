@@ -7,6 +7,7 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 
 import org.junit.Test;
+import org.openqa.selenium.ElementNotVisibleException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -79,11 +80,10 @@ public class UploadEmployeeBulk extends BrowserSettings {
 	    		
 	    		test.log(LogStatus.FAIL, "Member not added");
 	    		extent.endTest(test);
-	    		
 	    	}
 	    
-		} catch (NoSuchElementException e) { test.log(LogStatus.ERROR, "Test not executed");	
-		};
+		} catch (NoSuchElementException e) { test.log(LogStatus.ERROR, "Test not executed");}
+		  catch (ElementNotVisibleException e) {test.log(LogStatus.ERROR, "Test not executed");}
 
 	    extent.flush();
 		driver.quit();

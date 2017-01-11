@@ -1,13 +1,11 @@
 package memberportalTests;
 
-
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -29,7 +27,6 @@ public class AddClaimUAH extends BrowserSettings {
 	extent = new ExtentReports("bin/QA report.html", false);
 	ExtentTest test = extent.startTest("TCM-2");
    	
-   	
    	LoginPageMember loginmember = new LoginPageMember(driver);
    	Summary sumpage = new Summary(driver);
    	AddClaimPage addclaimpage = new AddClaimPage(driver);
@@ -47,12 +44,10 @@ public class AddClaimUAH extends BrowserSettings {
    	addclaimpage.AddNewClaimUAH();
    	waitmethod.Waitsec();
    	
-   	
     if(driver.getPageSource().contains("Summary")){
   		test.log(LogStatus.PASS, "Claim added");
   		extent.endTest(test);
   		
-      	
       	}else{
       		
       		test.log(LogStatus.FAIL, "Claim not added");

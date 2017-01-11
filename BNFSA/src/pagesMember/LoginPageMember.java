@@ -61,7 +61,7 @@ public void PreConditionsMember(String userid, String pass){
 
 public void GetLoginPageMember(){
 	
+	driver.manage().window().maximize();
 	driver.get("https://portal-qa.wtwbenefitsmarketplacefsa.com");
 }
-
 }

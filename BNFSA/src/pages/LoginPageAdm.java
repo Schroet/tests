@@ -2,11 +2,20 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
 
 public class LoginPageAdm {
 	
 	WebDriver driver;
+	//private static ExtentReports extent = null;
+	//ExtentTest test = null;
 	
 	By username = By.id("signin_username");
 	By password = By.id("signin_password");
@@ -28,7 +37,10 @@ public void PreConditions(String userid, String pass){
 	LoginAdminPortal(userid,pass);
 	waitmethod.Waitsec();
 	
+	
+	
 	}	
+
 
 
 public void LoginAdminPortal(String userid, String pass){
@@ -66,7 +78,7 @@ public void ClickContactusButton(){
 
 public void GetLoginPage(){
 	
-	driver.get("https://admin-qa.wtwbenefitsmarketplacefsa.com");
+	driver.get("https://admin-uat.wtwbenefitsmarketplacefsa.com/Auth/SignIn");
 }
 
 }

@@ -1,6 +1,7 @@
 package pageObjectsTests;
 
 import org.junit.Test;
+import org.openqa.selenium.ElementNotVisibleException;
 import org.openqa.selenium.NoSuchElementException;
 
 import com.relevantcodes.extentreports.ExtentReports;
@@ -32,6 +33,7 @@ public class DeleteClient extends BrowserSettings {
 	
 	
 	if(driver.getPageSource().contains("AAA")){
+		
 		client.ClickDeleteСlient();
     	
     	}else{
@@ -50,9 +52,13 @@ public class DeleteClient extends BrowserSettings {
     		extent.endTest(test);
     		
     	}
-	  } catch (NoSuchElementException e) { test.log(LogStatus.ERROR, "Test not executed");	
-		};
+	
+	  } catch (NoSuchElementException e) {test.log(LogStatus.ERROR, "Test not executed"); }
+	  
+	    catch (ElementNotVisibleException e) {test.log(LogStatus.ERROR, "Test not executed");}
+	 
 	extent.flush();
 	driver.quit();
+	
 	}
 }

@@ -4,13 +4,10 @@ import java.awt.AWTException;
 
 import org.junit.Test;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
-
 import pages.AddClient;
 import pages.ClaimLimitsPage;
 import pages.ClientDetails;
@@ -38,15 +35,22 @@ public class SetPasswordEmployee extends BrowserSettings {
 	
 	login.PreConditions("sys", "sys");
 	client.GotoClient();
-	
 	details.ClickMemberButton();
 	details.SetPass("123", "123");
 	
+	 if(driver.getPageSource().contains("Global ID")){
+			test.log(LogStatus.PASS, "Password was set");
+			extent.endTest(test);
+			
+	    	}else{
+	    		
+	    		test.log(LogStatus.FAIL, "Pass not set");
+	    		extent.endTest(test);
+	    	}
+	
 	} catch (NoSuchElementException e) { test.log(LogStatus.ERROR, "Test not executed");	
 	};
-	
-	
-	extent.endTest(test);
+
 	extent.flush();
 	driver.quit();
 }

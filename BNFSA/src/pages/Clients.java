@@ -3,6 +3,10 @@ package pages;
 import java.util.NoSuchElementException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.LogStatus;
 
@@ -30,7 +34,8 @@ public class Clients {
 	
 	AddClient waitmethod = new AddClient(driver);
 	
-	
+
+
 	/*
 	public void Shot() {
 		 File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
@@ -38,6 +43,12 @@ public class Clients {
 		};
 	*/
 	
+	
+	public void WaitForElement(){
+	 WebDriverWait wait = new WebDriverWait(driver, 10);
+		WebElement element = wait.until(
+		ExpectedConditions.visibilityOfElementLocated(editclient));
+	}
 	
 	public void GotoClient(){
 		
