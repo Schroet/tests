@@ -36,6 +36,7 @@ public class UploadCredits extends BrowserSettings {
 	Clients client = new Clients(driver);
 	ClientDetails details = new ClientDetails(driver);
 	AddClient waitmethod = new AddClient(driver);
+	TakeScreenshot screen = new TakeScreenshot(driver);
 	
 	 try {
 	login.PreConditions("sys", "sys");
@@ -72,11 +73,13 @@ public class UploadCredits extends BrowserSettings {
 	
 	 if(driver.getPageSource().contains("2500")){
 			test.log(LogStatus.PASS, "Credit added was added");
+			screen.ScreenShot("TC7");
 			extent.endTest(test);
 			
 	    	}else{
 	    		
 	    		test.log(LogStatus.FAIL, "Credit not added");
+	    		screen.ScreenShot("TC7");
 	    		extent.endTest(test);
 	    		
 	    	}

@@ -25,6 +25,7 @@ public class AddClientCategory extends BrowserSettings {
 	LoginPageAdm login = new LoginPageAdm(driver);
 	Clients client = new Clients(driver);
 	ClientDetails details = new ClientDetails(driver);
+	TakeScreenshot screen = new TakeScreenshot(driver);
 	
 	try {
 	
@@ -36,6 +37,7 @@ public class AddClientCategory extends BrowserSettings {
 	
 	if(driver.getPageSource().contains("Category with same Name already exists.")){
 		test.log(LogStatus.PASS, "Category was added");
+		screen.ScreenShot("TC4");
 		extent.endTest(test);
     	}else{
     		details.ClickOkCategoryButton();		
@@ -43,6 +45,7 @@ public class AddClientCategory extends BrowserSettings {
 	
 	if(driver.getPageSource().contains("cat")){
     	test.log(LogStatus.PASS, "Category was added");
+    	screen.ScreenShot("TC4");
     	extent.endTest(test);
     	}else{
     		

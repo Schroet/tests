@@ -34,6 +34,7 @@ public class AddClaimLimitUSD extends BrowserSettings {
 	ClientDetails details = new ClientDetails(driver);
 	AddClient waitmethod = new AddClient(driver);
 	ClaimLimitsPage limits = new ClaimLimitsPage(driver);
+	TakeScreenshot screen = new TakeScreenshot(driver);
 	
 	try {
 		
@@ -48,11 +49,13 @@ public class AddClaimLimitUSD extends BrowserSettings {
 	
 	 if(driver.getPageSource().contains("USD")){
 			test.log(LogStatus.PASS, "Limit was added");
+			screen.ScreenShot("TC11");
 			extent.endTest(test);
 			
 	    	}else{
 	    		
 	    		test.log(LogStatus.FAIL, "Limit type not added");
+	    		screen.ScreenShot("TC11");
 	    		extent.endTest(test);
 	    	}
 	 

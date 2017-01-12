@@ -38,17 +38,14 @@ WebDriver driver;
 	
 	public void TypeClient(){
 		
-	    driver.findElement(clientname).sendKeys("AAA" +" - "+"Test" + RandomStringUtils.randomAlphabetic(3) + RandomStringUtils.randomNumeric(3));
+	    driver.findElement(clientname).sendKeys("AAA" +" - "+"Test" + " - " + RandomStringUtils.randomAlphabetic(3) + RandomStringUtils.randomNumeric(3));
 	}
 	
     public void TypeClientRandomName(){
 		
 	    driver.findElement(clientname).sendKeys(RandomStringUtils.randomAlphabetic(5));
 	}
-	
-	
-	
-	
+
 public void TypeCountry(){
 	
 	    driver.findElement(countryfield).click();

@@ -30,6 +30,7 @@ public class AddAccount extends BrowserSettings {
    	LoginPageAdm login = new LoginPageAdm(driver);
 	Clients client = new Clients(driver);
 	ClientDetails details = new ClientDetails(driver);
+	TakeScreenshot screen = new TakeScreenshot(driver);
 	
 	try {
 	
@@ -45,11 +46,13 @@ public class AddAccount extends BrowserSettings {
 	
 	if(driver.getPageSource().contains("Action")){
 		test.log(LogStatus.PASS, "Account was added");
+		screen.ScreenShot("TC5");
 		extent.endTest(test);
 
     	}else{
     		
     		test.log(LogStatus.FAIL, "Account not added");
+    		screen.ScreenShot("TC5");
     		extent.endTest(test);
     	}
 

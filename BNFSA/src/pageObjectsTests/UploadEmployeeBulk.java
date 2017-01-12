@@ -37,6 +37,8 @@ public class UploadEmployeeBulk extends BrowserSettings {
 		Clients client = new Clients(driver);
 		ClientDetails details = new ClientDetails(driver);
 		AddClient waitmethod = new AddClient(driver);
+		TakeScreenshot screen = new TakeScreenshot(driver);
+		
 		
 		try {
 		login.PreConditions("sys", "sys");
@@ -48,7 +50,6 @@ public class UploadEmployeeBulk extends BrowserSettings {
 	    StringSelection ss = new StringSelection("C:\\GIT\\BNFSA\\bin\\Employees.en-GB.xls");  
 	    waitmethod.Waitsec();
 	    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
-	   
 	    Robot robot = new Robot();
 	    
 	    waitmethod.Waitsec();
@@ -74,12 +75,14 @@ public class UploadEmployeeBulk extends BrowserSettings {
 
 	    if(driver.getPageSource().contains("John")){
 			test.log(LogStatus.PASS, "Member added was added");
+			screen.ScreenShot("TC6");
 			extent.endTest(test);
 			
 	    	}else{
 	    		
 	    		test.log(LogStatus.FAIL, "Member not added");
 	    		extent.endTest(test);
+	    		screen.ScreenShot("TC6");
 	    	}
 	    
 		} catch (NoSuchElementException e) { test.log(LogStatus.ERROR, "Test not executed");}

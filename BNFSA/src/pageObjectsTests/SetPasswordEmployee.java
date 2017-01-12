@@ -32,6 +32,7 @@ public class SetPasswordEmployee extends BrowserSettings {
 	ClientDetails details = new ClientDetails(driver);
 	AddClient waitmethod = new AddClient(driver);
 	ClaimLimitsPage limits = new ClaimLimitsPage(driver);
+	TakeScreenshot screen = new TakeScreenshot(driver);
 	
 	login.PreConditions("sys", "sys");
 	client.GotoClient();
@@ -40,11 +41,13 @@ public class SetPasswordEmployee extends BrowserSettings {
 	
 	 if(driver.getPageSource().contains("Global ID")){
 			test.log(LogStatus.PASS, "Password was set");
+			screen.ScreenShot("TC12");
 			extent.endTest(test);
 			
 	    	}else{
 	    		
 	    		test.log(LogStatus.FAIL, "Pass not set");
+	    		screen.ScreenShot("TC12");
 	    		extent.endTest(test);
 	    	}
 	

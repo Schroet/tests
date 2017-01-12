@@ -28,11 +28,13 @@ public class LinkAccount extends BrowserSettings {
 	extent = new ExtentReports("bin/QA report.html", false);
 	ExtentTest test = extent.startTest("TC9");
 	
+	
 	 try {
  	LoginPageAdm login = new LoginPageAdm(driver);
 	Clients client = new Clients(driver);
 	ClientDetails details = new ClientDetails(driver);
 	AddClient waitmethod = new AddClient(driver);
+	TakeScreenshot screen = new TakeScreenshot(driver);
 	
 	login.PreConditions("sys", "sys");
 	client.GotoClient();
@@ -41,11 +43,13 @@ public class LinkAccount extends BrowserSettings {
 	
 	 if(driver.getPageSource().contains("FSA")){
 			test.log(LogStatus.PASS, "Claim type was linked");
+			screen.ScreenShot("TC9");
 			extent.endTest(test);
 			
 	    	}else{
 	    		
 	    		test.log(LogStatus.FAIL, "Claim type not linked");
+	    		screen.ScreenShot("TC9");
 	    		extent.endTest(test);
 	    	}
 	 

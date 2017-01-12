@@ -21,6 +21,7 @@ public class DeleteClient extends BrowserSettings {
     
 	extent = new ExtentReports("bin/QA report.html", false);
 	ExtentTest test = extent.startTest("TC2");
+	TakeScreenshot screen = new TakeScreenshot(driver);
 	
 	LoginPageAdm login = new LoginPageAdm(driver);
 	Clients client = new Clients(driver);
@@ -39,6 +40,7 @@ public class DeleteClient extends BrowserSettings {
     	}else{
     		
     		test.log(LogStatus.PASS, "Client AAA not exist");
+    		screen.ScreenShot("TC2");
     		extent.endTest(test);
     	}
 	
@@ -55,7 +57,9 @@ public class DeleteClient extends BrowserSettings {
 	
 	  } catch (NoSuchElementException e) {test.log(LogStatus.ERROR, "Test not executed"); }
 	  
-	    catch (ElementNotVisibleException e) {test.log(LogStatus.ERROR, "Test not executed");}
+	    catch (ElementNotVisibleException e) {test.log(LogStatus.ERROR, "Test not executed");
+	    screen.ScreenShot("TC2");
+	    }
 	 
 	extent.flush();
 	driver.quit();

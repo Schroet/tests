@@ -34,6 +34,7 @@ public class AddClaimLimitUAH extends BrowserSettings {
 	ClientDetails details = new ClientDetails(driver);
 	AddClient waitmethod = new AddClient(driver);
 	ClaimLimitsPage limits = new ClaimLimitsPage(driver);
+	TakeScreenshot screen = new TakeScreenshot(driver);
 	
 	try {
 	login.PreConditions("sys", "sys");
@@ -46,11 +47,13 @@ public class AddClaimLimitUAH extends BrowserSettings {
 	
 	 if(driver.getPageSource().contains("Edit")){
 			test.log(LogStatus.PASS, "Limit was added");
+			screen.ScreenShot("TC10");
 			extent.endTest(test);
 			
 	    	}else{
 	    		
 	    		test.log(LogStatus.FAIL, "Limit type not added");
+	    		screen.ScreenShot("TC10");
 	    		extent.endTest(test);	
 	    	}
 	} catch (NoSuchElementException e) { test.log(LogStatus.ERROR, "Test not executed");	

@@ -32,6 +32,7 @@ public class AddClaimType extends BrowserSettings {
 	Clients client = new Clients(driver);
 	ClientDetails details = new ClientDetails(driver);
 	AddClient waitmethod = new AddClient(driver);
+	TakeScreenshot screen = new TakeScreenshot(driver);
 	
 	try {
 	
@@ -48,10 +49,12 @@ public class AddClaimType extends BrowserSettings {
 	
 	 if(driver.getPageSource().contains("Delete")){
 			test.log(LogStatus.PASS, "Claim type was added");
+			screen.ScreenShot("TC8");
 			extent.endTest(test);
 	    	}else{
 	    		
 	    		test.log(LogStatus.FAIL, "Claim type not added");
+	    		screen.ScreenShot("TC8");
 	    		extent.endTest(test);
 	    	}
 	 
