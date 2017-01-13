@@ -3,7 +3,10 @@ package pagesMember;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import pageObjectsTests.GetEmailText;
+import pageObjectsTests.MemberEdit;
 import pages.AddClient;
+import pages.MemberPage;
 
 public class LoginPageMember {
 	
@@ -23,13 +26,20 @@ public LoginPageMember(WebDriver driver){
 	
 
 AddClient waitmethod = new AddClient(driver);
+MemberPage mempage = new MemberPage(driver);
+MemberEdit memedit = new MemberEdit();
+GetEmailText mailtext = new GetEmailText();
+
+String membemail;
 
 
-public void FirstLoginMemberPortal(String userid, String pass){
+public void FirstLoginMemberPortal(String pass){
 	
-	driver.manage().window().maximize();
+	
     GetLoginPageMember();
-	driver.findElement(login).sendKeys(userid);
+    driver.manage().window().maximize();
+	//driver.findElement(login).sendKeys(memedit.elementval);
+    AddMail();
 	driver.findElement(passw).sendKeys(pass);
 	waitmethod.Waitsec();
 	driver.findElement(signinbtn).click();
@@ -51,6 +61,14 @@ public void LoginMemberPortal(String userid, String pass){
 		driver.findElement(passw).sendKeys(pass);
 		driver.findElement(signinbtn).click();
 	}
+
+public void AddMail(){
+	
+	//driver.findElement(login).sendKeys(GetEmailText.getMembemail());
+}
+
+
+
 
 
 public void PreConditionsMember(String userid, String pass){

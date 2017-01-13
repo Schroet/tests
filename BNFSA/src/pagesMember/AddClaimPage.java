@@ -16,7 +16,7 @@ import pages.AddClient;
 		
 		this.driver = driver;
 	}
-
+   
    By claimtypefield = By.xpath(".//*[@id='claimType']");
    By claimtypevalue= By.xpath(".//*[@id='claimType']/option[2]");
    By receiptdatefield= By.xpath(".//*[@id='datepicker']");
@@ -53,8 +53,4 @@ import pages.AddClient;
 		waitmethod.Waitsec();
 		//wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@id='addClaimButton']")));
 	};
-	
-	
-	
-
 }

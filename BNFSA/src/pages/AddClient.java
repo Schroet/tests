@@ -19,6 +19,7 @@ WebDriver driver;
 	By clientname = By.id("clientName");
 	By countryfield = By.xpath("/html/body/div[1]/div[1]/div[3]/div[2]/div/div/div[2]/form/div/div[6]/div/span[1]/span/span[1]");
 	By countryname = By.xpath("/html/body/div[2]/div/div[3]/ul/li[2]");
+	By descr = By.xpath(".//*[@id='descriptionArea']");
 	By multilingualfield = By.xpath("/html/body/div[1]/div[1]/div[3]/div[2]/div/div/div[2]/form/div/div[10]/div/span/span/span[1]");
 	By multilingualno = By.xpath("/html/body/div[4]/div/div[2]/ul/li[2]");
 	By langfield = By.xpath("/html/body/div[1]/div[1]/div[3]/div[2]/div/div/div[2]/form/div/div[11]/div/span[1]/span/span[2]/span");
@@ -45,6 +46,13 @@ WebDriver driver;
 		
 	    driver.findElement(clientname).sendKeys(RandomStringUtils.randomAlphabetic(5));
 	}
+
+
+    
+public String memberemail = RandomStringUtils.randomAlphabetic(5) + "@" + "yopmail.com";   
+    
+ 
+    
 
 public void TypeCountry(){
 	
@@ -102,6 +110,10 @@ public void ClickAddButton(){
     Waitsec();
     Waitsec();
 }
+
+
+
+
 
 public String generateRandomString(int length){
 	  return RandomStringUtils.randomAlphabetic(length);

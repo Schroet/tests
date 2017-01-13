@@ -1,5 +1,6 @@
 package pages;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -36,12 +37,7 @@ public void PreConditions(String userid, String pass){
 	GetLoginPage();
 	LoginAdminPortal(userid,pass);
 	waitmethod.Waitsec();
-	
-	
-	
 	}	
-
-
 
 public void LoginAdminPortal(String userid, String pass){
 		
@@ -75,6 +71,22 @@ public void ClickContactusButton(){
 	
     driver.findElement(contactus).click();	
 }
+
+public String email_name = RandomStringUtils.randomAlphabetic(5) + "@" + "yopmail.com";
+
+
+public void TypeUsernameEmail(){
+	
+	driver.findElement(username).sendKeys(email_name);
+}
+
+public void TypePasswordEmail(){
+	
+    driver.findElement(password).sendKeys(email_name);
+}
+
+
+
 
 public void GetLoginPage(){
 	

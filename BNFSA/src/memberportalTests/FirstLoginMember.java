@@ -11,7 +11,9 @@ import com.relevantcodes.extentreports.LogStatus;
 
 import pageObjectsTests.BrowserSettings;
 import pageObjectsTests.LinkAccount;
+import pages.AddClient;
 import pages.LoginPageAdm;
+import pages.MemberPage;
 import pagesMember.LoginPageMember;
 
 public class FirstLoginMember extends BrowserSettings  {
@@ -20,7 +22,8 @@ public class FirstLoginMember extends BrowserSettings  {
 	
 	@Test
 	public void FirstLoginMemberTest(){
-	
+		
+	AddClient client = new AddClient(driver);
 	LaunchBrowser();
 	
 	extent = new ExtentReports("bin/QA report.html", false);
@@ -30,7 +33,7 @@ public class FirstLoginMember extends BrowserSettings  {
    	
    	try {
    	
-   	loginmember.FirstLoginMemberPortal("fsa@yopmail.com", "123");
+   	loginmember.FirstLoginMemberPortal("123");
    	
     if(driver.getPageSource().contains("Summary")){
 		test.log(LogStatus.PASS, "Member was login");
