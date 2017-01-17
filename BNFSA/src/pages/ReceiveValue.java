@@ -1,29 +1,24 @@
-package pageObjectsTests;
-
-import java.awt.List;
+package pages;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 
-import junit.framework.Assert;
-import pages.AddClient;
-import pages.ClientDetails;
-import pages.Clients;
-import pages.LoginPageAdm;
-import pages.MemberPage;
+import pageObjectsTests.BrowserSettings;
 
-public class GetEmailText extends BrowserSettings {
+public class ReceiveValue extends BrowserSettings {
+	
+	public WebDriver driver= null;
 	
 	
-	static String elementval;
-	
-   @Test
-   
-	public void MemberEditInfo(){
+    @Test
+    public  String Main(){
     	
-		
-		LaunchBrowser();
+	    driver = new ChromeDriver();	
+	    System.setProperty("webdriver.chrome.driver", "bin/chromedriver.exe");
+    
 
 		LoginPageAdm login = new LoginPageAdm(driver);
 		Clients client = new Clients(driver);
@@ -40,16 +35,13 @@ public class GetEmailText extends BrowserSettings {
 		
 		
 		WebElement element = driver.findElement(By.id("Member_Email"));
-		this.elementval = element.getAttribute("value");
+		String elementval = element.getAttribute("value");
 		
 		System.out.println(elementval);
 		driver.quit();
+		
+		return elementval;
 
 	}
-    
-	
-	
-	
-    //public static String mailtext = MemberEditInfo();
 
 }

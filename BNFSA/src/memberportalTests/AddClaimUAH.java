@@ -1,5 +1,7 @@
 package memberportalTests;
 
+import java.io.IOException;
+
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -10,6 +12,7 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 import pageObjectsTests.BrowserSettings;
+import pageObjectsTests.TakeScreenshot;
 import pages.AddClient;
 import pagesMember.AddClaimPage;
 import pagesMember.LoginPageMember;
@@ -20,7 +23,7 @@ public class AddClaimUAH extends BrowserSettings {
 	private static ExtentReports extent;
 	
 	@Test
-	public void UploadEmployees(){
+	public void UploadEmployees() throws IOException{
 	
 	LaunchBrowser();
 	
@@ -31,9 +34,10 @@ public class AddClaimUAH extends BrowserSettings {
    	Summary sumpage = new Summary(driver);
    	AddClaimPage addclaimpage = new AddClaimPage(driver);
    	AddClient waitmethod = new AddClient(driver);
+   	TakeScreenshot screen = new TakeScreenshot(driver);
    	
 	try {
-   	loginmember.PreConditionsMember("fsa@yopmail.com", "123");
+   	loginmember.PreConditionsMember("123");
    	//wait.until(ExpectedConditions.elementToBeClickable(By.id("addClaimButton")));
    	
     WebDriverWait wait = new WebDriverWait(driver, 10);
@@ -45,11 +49,13 @@ public class AddClaimUAH extends BrowserSettings {
    	waitmethod.Waitsec();
    	
     if(driver.getPageSource().contains("Summary")){
+    	screen.ScreenShot("TCM-2");
   		test.log(LogStatus.PASS, "Claim added");
   		extent.endTest(test);
   		
       	}else{
       		
+      		screen.ScreenShot("TCM-2");
       		test.log(LogStatus.FAIL, "Claim not added");
       		extent.endTest(test);
       	}

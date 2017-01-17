@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import pageObjectsTests.MemberEdit;
+
 public class MemberPage {
 	
 	WebDriver driver;
@@ -29,6 +31,7 @@ public class MemberPage {
 	By addnewclaimbtn = By.xpath(".//*[@id='tab-details']/div/div[2]/a[1]");
 	By editbtn2 = By.xpath(".//*[@id='tab-details']/div/div[2]/a[2]");
 	
+	//String emailvalue = MemberEdit.elementval;
 	
 public String GetMailValue(){
 		
@@ -96,7 +99,7 @@ public void EditBtnClick(){
 public void AddEMail(){
 	
 	driver.findElement(emailfld).clear();
-	driver.findElement(emailfld).sendKeys(memberemail);	
+	driver.findElement(emailfld).sendKeys(randomEmail());	
 }	
 	
 public void AddEMailLogin(){
@@ -104,6 +107,14 @@ public void AddEMailLogin(){
 	driver.findElement(emailfldlog).sendKeys();		
 
 }	
+
+
+public static String randomEmail() {
+    return RandomStringUtils.randomAlphabetic(5) + "@" + "yopmail.com";
+}
+
+
+
 
 String memberemail = RandomStringUtils.randomAlphabetic(5) + "@" + "yopmail.com";
 String elementval;

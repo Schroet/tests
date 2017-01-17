@@ -1,5 +1,16 @@
 package pageObjectsTests;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -19,7 +30,10 @@ import pages.MemberPage;
 public class MemberEdit extends BrowserSettings {
 	
 	private static ExtentReports extent;
-	//private String elementval;
+	String elementval;
+	String updatename;
+	
+	
 
 	@Test
 	public void MemberEditInfo() throws InterruptedException{
@@ -29,7 +43,7 @@ public class MemberEdit extends BrowserSettings {
 		 extent = new ExtentReports("bin/QA report.html", true);
 		 ExtentTest test = extent.startTest("TC13");
 		
-		
+		updatename = elementval;
 		LoginPageAdm login = new LoginPageAdm(driver);
 		Clients client = new Clients(driver);
 		AddClient addclient = new AddClient(driver);	
@@ -54,10 +68,44 @@ public class MemberEdit extends BrowserSettings {
 		mempage.EditBtn2Click();
 		Thread.sleep(2000);
 		WebElement element = driver.findElement(By.id("Member_Email"));
+		
 		String elementval = element.getAttribute("value");
 		
-		System.out.println(elementval);
-		
+	
+	        //Get the excel file.
+	        FileInputStream file = new FileInputStream(new File("C:/GIT/BNFSA/bin/emailsrandom.xls"));
+	 
+	        //Get workbook for XLS file.
+	        HSSFWorkbook yourworkbook = new HSSFWorkbook(file);
+	 
+	        //Get first sheet from the workbook.
+	        
+	        //If there have >1 sheet in your workbook, you can change it here IF you want to edit other sheets.
+	        HSSFSheet sheet1 = yourworkbook.getSheetAt(0);
+	 
+	        // Get the row of your desired cell.
+	        // Let's say that your desired cell is at row 2.
+	        Row row = sheet1.getRow(0);
+	        // Get the column of your desired cell in your selected row.
+	        // Let's say that your desired cell is at column 2.
+	        Cell column = row.getCell(0);
+	        // If the cell is String type.If double or else you can change it.
+	        elementval = column.getStringCellValue();
+	        //New content for desired cell.
+	        elementval = element.getAttribute("value"); 
+	        //Print out the updated content.
+	        System.out.println(elementval);
+	        //Set the new content to your desired cell(column).
+	        column.setCellValue(elementval); 
+	        //Close the excel file.
+	        file.close();
+	        //Where you want to save the updated sheet.
+	        FileOutputStream out = 
+	            new FileOutputStream(new File("C:/GIT/BNFSA/bin/emailsrandom.xls"));
+	        yourworkbook.write(out);
+	        out.close();
+	 
+
 		Thread.sleep(2000);
 		
 		  if(driver.getPageSource().contains("Edit")){
@@ -69,8 +117,12 @@ public class MemberEdit extends BrowserSettings {
 		    	} 
 
 		} catch (NoSuchElementException e) { test.log(LogStatus.ERROR, "Test not executed");	
-		};
-		
+		}
+	catch (FileNotFoundException e) {
+        e.printStackTrace();
+    } catch (IOException e) {
+        e.printStackTrace();
+    };
 		
 		
 		   extent.flush();

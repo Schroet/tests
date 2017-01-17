@@ -1,5 +1,12 @@
 package pagesMember;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.Reader;
+
+import org.apache.poi.hssf.extractor.ExcelExtractor;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -27,19 +34,16 @@ public LoginPageMember(WebDriver driver){
 
 AddClient waitmethod = new AddClient(driver);
 MemberPage mempage = new MemberPage(driver);
-MemberEdit memedit = new MemberEdit();
-GetEmailText mailtext = new GetEmailText();
 
-String membemail;
+//Reader read = new Reader(driver);
 
 
-public void FirstLoginMemberPortal(String pass){
-	
+public void FirstLoginMemberPortal(String pass) throws IOException{
 	
     GetLoginPageMember();
     driver.manage().window().maximize();
-	//driver.findElement(login).sendKeys(memedit.elementval);
-    AddMail();
+    GetEmail();
+    waitmethod.Waitsec();
 	driver.findElement(passw).sendKeys(pass);
 	waitmethod.Waitsec();
 	driver.findElement(signinbtn).click();
@@ -53,33 +57,40 @@ public void FirstLoginMemberPortal(String pass){
 	
 }
 
-public void LoginMemberPortal(String userid, String pass){
+public void LoginMemberPortal( String pass) throws IOException{
 	
 	    GetLoginPageMember();
 	    driver.manage().window().maximize();
-		driver.findElement(login).sendKeys(userid);
+	    GetEmail();
 		driver.findElement(passw).sendKeys(pass);
 		driver.findElement(signinbtn).click();
 	}
 
-public void AddMail(){
+
+public void GetEmail() throws IOException{
 	
-	//driver.findElement(login).sendKeys(GetEmailText.getMembemail());
+    InputStream in = new FileInputStream("bin/emailsrandom.xls");
+  
+    HSSFWorkbook wb = new HSSFWorkbook(in);
+
+    ExcelExtractor extractor = new ExcelExtractor(wb);
+    extractor.setFormulasNotResults(false); // Считать формулы
+    extractor.setIncludeSheetNames(false);
+    
+    String text = extractor.getText();
+    driver.findElement(login).sendKeys(text);
+
 }
 
-
-
-
-
-public void PreConditionsMember(String userid, String pass){
+public void PreConditionsMember(String pass) throws IOException{
 	
-	LoginMemberPortal(userid,pass);
+	LoginMemberPortal(pass);
 	
 };
 
 public void GetLoginPageMember(){
 	
 	driver.manage().window().maximize();
-	driver.get("https://portal-qa.wtwbenefitsmarketplacefsa.com");
+	driver.get("https://portal-uat.wtwbenefitsmarketplacefsa.com/");
 }
 }
