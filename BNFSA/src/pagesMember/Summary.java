@@ -2,6 +2,9 @@ package pagesMember;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import pages.AddClient;
 
@@ -17,6 +20,8 @@ public class Summary {
 	By clickadd = By.xpath(".//*[@id='addClaimButton']");
 	By accountdetails = By.xpath(".//*[@id='main']/div[2]/div/div[3]/div[2]/div/div/div/div[2]/div[2]/a");
 	By claimhistory = By.xpath(".//*[@id='main']/div[2]/div/div[3]/div[2]/div/div/div/div[2]/div[5]/a']");
+	By print = By.xpath(".//*[@id='main']/div[3]/div/button");
+	String btnprint = ".//*[@id='main']/div[3]/div/button"; 
 	
     public Summary(WebDriver driver){
 		this.driver = driver;
@@ -29,12 +34,22 @@ public class Summary {
 public void ClickBtnAddnewClaim(){
 	
 	waitmethod.Waitsec();
-	driver.findElement(clickadd).click();
+	driver.findElement(print).click();
 	
 }
 
+public void WaitForBtnPrint(){
 
+	waitmethod.Waitsec();
+	driver.findElement(clickadd).click();
+}
 
+public void ClickBtnPrint(){
+	
+	waitmethod.Waitsec();
+	driver.findElement(clickadd).click();
+	
+}
 
 
 
