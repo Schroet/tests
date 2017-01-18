@@ -46,7 +46,7 @@ public class UploadCredits extends BrowserSettings {
 	details.AccountFundingClick();
 	details.ChooseCreditsClick();
 	
-    StringSelection ss = new StringSelection("C:\\GIT\\BNFSA\\bin\\MemberCredits.en-GB.xls");  
+    StringSelection ss = new StringSelection("C:\\GIT\\BNFSA\\bin\\bulks\\MemberCredits.en-GB.xls");  
     waitmethod.Waitsec();
     Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
    

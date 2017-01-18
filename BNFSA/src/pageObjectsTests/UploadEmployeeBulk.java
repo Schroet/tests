@@ -47,7 +47,7 @@ public class UploadEmployeeBulk extends BrowserSettings {
 		details.ClickImportEmployeeButton();
 		details.ClickChooseFile();
 		
-	    StringSelection ss = new StringSelection("C:\\GIT\\BNFSA\\bin\\Employees.en-GB.xls");  
+	    StringSelection ss = new StringSelection("C:\\GIT\\BNFSA\\bin\\bulks\\Employees.en-GB.xls");  
 	    waitmethod.Waitsec();
 	    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
 	    Robot robot = new Robot();
