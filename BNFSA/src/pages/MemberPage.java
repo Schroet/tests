@@ -110,7 +110,7 @@ public void AddEMailLogin(){
 
 
 public static String randomEmail() {
-    return RandomStringUtils.randomAlphabetic(5) + "@" + "yopmail.com";
+    return RandomStringUtils.randomAlphabetic(5) + RandomStringUtils.randomNumeric(4) + "@" + "yopmail.com";
 }
 
 

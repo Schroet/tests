@@ -22,16 +22,15 @@ public class TakeScreenshot {
 
  public void ScreenShot(String nameTc)
 {
-// Open Firefox
 
- 
+
 // Maximize the window
-
 // Take screenshot and store as a file format
+	 
 File src= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 try {
  // now copy the  screenshot to desired location using copyFile //method
-FileUtils.copyFile(src, new File("bin/" + nameTc + ".png"));
+FileUtils.copyFile(src, new File("bin/screenshots/" + nameTc + ".png"));
 }
  
 catch (IOException e)

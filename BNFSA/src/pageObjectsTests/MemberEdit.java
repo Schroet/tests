@@ -40,7 +40,7 @@ public class MemberEdit extends BrowserSettings {
 		
 		LaunchBrowser();
 		
-		 extent = new ExtentReports("bin/QA report.html", true);
+		 extent = new ExtentReports("bin/QA report.html", false);
 		 ExtentTest test = extent.startTest("TC13");
 		
 		updatename = elementval;
@@ -50,6 +50,7 @@ public class MemberEdit extends BrowserSettings {
 		ClientDetails details = new ClientDetails(driver);
 		MemberPage mempage = new MemberPage(driver);
 		AddClient waitmethod = new AddClient(driver);
+		TakeScreenshot screen = new TakeScreenshot(driver);
 	
 		try {
 		
@@ -110,10 +111,12 @@ public class MemberEdit extends BrowserSettings {
 		
 		  if(driver.getPageSource().contains("Edit")){
 		    	test.log(LogStatus.PASS, "Data was verify");
+		    	screen.ScreenShot("TC13");
 		    	extent.endTest(test);
 		    	}else{
 		    		test.log(LogStatus.FAIL, "Data was not verify");
 		    		extent.endTest(test);
+		    		screen.ScreenShot("TC13");
 		    	} 
 
 		} catch (NoSuchElementException e) { test.log(LogStatus.ERROR, "Test not executed");	
