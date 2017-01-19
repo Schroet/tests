@@ -53,10 +53,7 @@ public class MemberEdit extends BrowserSettings {
 		TakeScreenshot screen = new TakeScreenshot(driver);
 	
 		try {
-		
-		//extent = new ExtentReports("bin/QA report.html", false);
-		//ExtentTest test = extent.startTest("TC13");
-		
+
 		login.PreConditions("sys", "sys");
 		client.GotoClient();
 		details.ClickMemberButton();

@@ -15,9 +15,7 @@ import com.relevantcodes.extentreports.LogStatus;
 public class LoginPageAdm {
 	
 	WebDriver driver;
-	//private static ExtentReports extent = null;
-	//ExtentTest test = null;
-	
+
 	By username = By.id("signin_username");
 	By password = By.id("signin_password");
 	By loginButton = By.xpath("//input[@value='Sign In']");
@@ -90,7 +88,7 @@ public void TypePasswordEmail(){
 
 public void GetLoginPage(){
 	
-	driver.get("https://admin-qa.wtwbenefitsmarketplacefsa.com/Auth/SignIn");
+	driver.get("http://admin.bnfsa.local/Auth/SignIn?ReturnUrl=%2FClient%2FClients");
 }
 
 }

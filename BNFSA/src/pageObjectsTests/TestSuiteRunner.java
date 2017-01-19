@@ -8,12 +8,8 @@ import memberportalTests.AddClaimUAH;
 import memberportalTests.FirstLoginMember;
 
 
-
-
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-	
-	
 		
 Test1Login.class, //1
 DeleteClient.class,
@@ -28,6 +24,7 @@ AddClaimLimitUAH.class,
 AddClaimLimitUSD.class,
 SetPasswordEmployee.class,
 MemberEdit.class,
+AddNewEmployee.class,
 FirstLoginMember.class,
 AddClaimUAH.class,
 

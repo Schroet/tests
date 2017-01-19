@@ -91,6 +91,6 @@ public void PreConditionsMember(String pass) throws IOException{
 public void GetLoginPageMember(){
 	
 	driver.manage().window().maximize();
-	driver.get("https://portal-qa.wtwbenefitsmarketplacefsa.com/#/login");
+	driver.get("http://portal.bnfsa.local/#/login");
 }
 }
