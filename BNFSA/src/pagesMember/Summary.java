@@ -34,20 +34,20 @@ public class Summary {
 public void ClickBtnAddnewClaim(){
 	
 	waitmethod.Waitsec();
-	driver.findElement(print).click();
+	driver.findElement(clickadd).click();
 	
 }
 
 public void WaitForBtnPrint(){
 
 	waitmethod.Waitsec();
-	driver.findElement(clickadd).click();
+	driver.findElement(print).click();
 }
 
 public void ClickBtnPrint(){
 	
 	waitmethod.Waitsec();
-	driver.findElement(clickadd).click();
+	driver.findElement(print).click();
 	
 }
 
