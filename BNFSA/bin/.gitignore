@@ -1,5 +1,5 @@
 .project
-.gitignore
+
 .settings
 .classpath
 .metadata
@@ -7,4 +7,3 @@
 *.png
 chromedriver.exe
 QA report.html
-/pagesMember/
