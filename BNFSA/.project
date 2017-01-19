@@ -14,11 +14,4 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>resourses/chromedriver.exe</name>
-			<type>1</type>
-			<location>C:/Java libraries/ChromeDriver/chromedriver.exe</location>
-		</link>
-	</linkedResources>
 </projectDescription>

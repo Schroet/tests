@@ -90,7 +90,7 @@ public void TypePasswordEmail(){
 
 public void GetLoginPage(){
 	
-	driver.get("https://admin-uat.wtwbenefitsmarketplacefsa.com/Auth/SignIn");
+	driver.get("https://admin-qa.wtwbenefitsmarketplacefsa.com/Auth/SignIn");
 }
 
 }

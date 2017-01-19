@@ -1,12 +1,1 @@
-/pageObjectsTests/bulks/
-*
-/emailsrandom
-/QA report
-/.settings
-/pageObjectsTests/
-*.xls
-chromedriver.exe
-*.png
-.classpath
-.project
-.gitignore
+/pagesMember/
