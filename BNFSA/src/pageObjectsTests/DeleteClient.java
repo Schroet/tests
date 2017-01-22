@@ -7,8 +7,9 @@ import org.openqa.selenium.NoSuchElementException;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
-import pages.Clients;
-import pages.LoginPageAdm;
+
+import pagesAdmin.Clients;
+import pagesAdmin.LoginPageAdm;
 
 public class DeleteClient extends BrowserSettings {
 	
@@ -42,6 +43,7 @@ public class DeleteClient extends BrowserSettings {
     		test.log(LogStatus.PASS, "Client AAA not exist");
     		screen.ScreenShot("TC2");
     		extent.endTest(test);
+    		extent.flush();
     	}
 	
 	client.ClickDeleteСlientOk();
@@ -51,7 +53,9 @@ public class DeleteClient extends BrowserSettings {
 
     	}else{
     		test.log(LogStatus.PASS, "Client AAA not exist");
+    		screen.ScreenShot("TC2");
     		extent.endTest(test);
+    		extent.flush();
     		
     	}
 	

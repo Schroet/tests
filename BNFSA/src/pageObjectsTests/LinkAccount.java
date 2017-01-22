@@ -11,10 +11,10 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
-import pages.AddClient;
-import pages.ClientDetails;
-import pages.Clients;
-import pages.LoginPageAdm;
+import pagesAdmin.AddClient;
+import pagesAdmin.ClientDetails;
+import pagesAdmin.Clients;
+import pagesAdmin.LoginPageAdm;
 
 public class LinkAccount extends BrowserSettings {
 	

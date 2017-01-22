@@ -6,9 +6,9 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
-import pages.ClientDetails;
-import pages.Clients;
-import pages.LoginPageAdm;
+import pagesAdmin.ClientDetails;
+import pagesAdmin.Clients;
+import pagesAdmin.LoginPageAdm;
 
 public class AddClientCategory extends BrowserSettings {
 	

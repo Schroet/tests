@@ -1,4 +1,4 @@
-package pages;
+package pagesAdmin;
 
 import java.awt.AWTException;
 import java.awt.Robot;

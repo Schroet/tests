@@ -1,4 +1,4 @@
-package pages;
+package pagesAdmin;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
@@ -88,7 +88,7 @@ public void TypePasswordEmail(){
 
 public void GetLoginPage(){
 	
-	driver.get("http://admin.bnfsa.local/Auth/SignIn?ReturnUrl=%2FClient%2FClients");
+	driver.get("https://admin-qa.wtwbenefitsmarketplacefsa.com/Auth/SignIn");
 }
 
 }

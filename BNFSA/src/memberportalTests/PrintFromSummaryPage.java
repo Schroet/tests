@@ -13,7 +13,7 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 
 import pageObjectsTests.BrowserSettings;
-import pages.AddClient;
+import pagesAdmin.AddClient;
 import pagesMember.LoginPageMember;
 import pagesMember.Summary;
 

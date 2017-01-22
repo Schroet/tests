@@ -1,4 +1,4 @@
-package pageObjectsTests;
+package suitRunner;
 
 
 import org.junit.runner.RunWith;
@@ -6,6 +6,20 @@ import org.junit.runners.Suite;
 
 import memberportalTests.AddClaimUAH;
 import memberportalTests.FirstLoginMember;
+import pageObjectsTests.AddAccount;
+import pageObjectsTests.AddClaimLimitUAH;
+import pageObjectsTests.AddClaimLimitUSD;
+import pageObjectsTests.AddClaimType;
+import pageObjectsTests.AddClientCategory;
+import pageObjectsTests.AddNewClient;
+import pageObjectsTests.AddNewEmployee;
+import pageObjectsTests.DeleteClient;
+import pageObjectsTests.LinkAccount;
+import pageObjectsTests.MemberEdit;
+import pageObjectsTests.SetPasswordEmployee;
+import pageObjectsTests.Test1Login;
+import pageObjectsTests.UploadCredits;
+import pageObjectsTests.UploadEmployeeBulk;
 
 
 @RunWith(Suite.class)

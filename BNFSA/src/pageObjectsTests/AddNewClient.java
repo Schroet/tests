@@ -5,9 +5,10 @@ import org.openqa.selenium.NoSuchElementException;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
-import pages.AddClient;
-import pages.Clients;
-import pages.LoginPageAdm;
+
+import pagesAdmin.AddClient;
+import pagesAdmin.Clients;
+import pagesAdmin.LoginPageAdm;
 
 public class AddNewClient extends BrowserSettings {
 	

@@ -1,4 +1,4 @@
-package pages;
+package pagesAdmin;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -30,7 +30,7 @@ WebDriver driver;
 	By addaccounts = By.xpath("/html/body/div[1]/div[1]/div[3]/div[2]/div/div/div[5]/div/a");
 	By findaccounts = By.xpath("/html/body/div[1]/div[1]/div[3]/div[2]/div/ul/li[4]/a");
 	By editaccounts = By.xpath("/html/body/div[1]/div[1]/div[3]/div[2]/div/ul/li[4]/a");
-	By gotoaccount = By.xpath(".//*[@id='client_accounts']/div[2]/table/tbody/tr/td[1]/a");
+	By gotoaccount = By.xpath(".//*[@id='client_accounts']/table/tbody/tr/td[1]/a");
 	By accountfundingclick = By.xpath("/html/body/div[1]/div[1]/div[3]/div[2]/div/div/div/div[2]/div/div[1]/a[3]");
 	By choosecredit =  By.xpath("/html/body/div[1]/div[1]/div[3]/div[2]/div/div/div/div[3]/div[2]/form/div[1]/div/div[1]/div");
 	By creditsubmit =  By.xpath("/html/body/div[1]/div[1]/div[3]/div[2]/div/div/div/div[3]/div[2]/form/div[3]/div/button");
@@ -46,7 +46,7 @@ WebDriver driver;
 	By benefityear = By.xpath("/html/body/div[1]/div[1]/div[3]/div[2]/div/div/div[2]/div/form/div[3]/div/span/span/input");
 	By accstart = By.id("Account_StartDate");
 	By accend = By.id("Account_EndDate");
-	By accadd = By.xpath(".//*[@id='page-wrapper']/div[3]/div[2]/div/div/div[2]/div/form/div[18]/div/button");
+	By accadd = By.xpath(".//*[@id='page-wrapper']/div[3]/div[2]/div/div/div[2]/div/form/div[19]/div/button");
 	
 	
 	//Claim Types

@@ -9,11 +9,11 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
-import pages.AddClient;
-import pages.ClientDetails;
-import pages.Clients;
-import pages.LoginPageAdm;
-import pages.MembersList;
+import pagesAdmin.AddClient;
+import pagesAdmin.ClientDetails;
+import pagesAdmin.Clients;
+import pagesAdmin.LoginPageAdm;
+import pagesAdmin.MembersList;
 
 public class AddNewEmployee extends BrowserSettings {
 	

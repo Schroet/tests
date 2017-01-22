@@ -48,9 +48,9 @@ public class GmailLetter
       MimeBodyPart mbp2 = new MimeBodyPart();
  
             // attach the file to the message
-         FileDataSource fds = new FileDataSource(filename);
+       /*  FileDataSource fds = new FileDataSource(filename);
       mbp2.setDataHandler(new DataHandler(fds));
-      mbp2.setFileName(fds.getName());
+      mbp2.setFileName(fds.getName()); */
  
       // create the Multipart and add its parts to it
       Multipart mp = new MimeMultipart();

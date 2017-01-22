@@ -1,4 +1,4 @@
-package pages;
+package pagesAdmin;
 
 import java.util.NoSuchElementException;
 import org.openqa.selenium.By;

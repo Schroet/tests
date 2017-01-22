@@ -14,9 +14,9 @@ import pageObjectsTests.BrowserSettings;
 import pageObjectsTests.LinkAccount;
 import pageObjectsTests.Reader;
 import pageObjectsTests.TakeScreenshot;
-import pages.AddClient;
-import pages.LoginPageAdm;
-import pages.MemberPage;
+import pagesAdmin.AddClient;
+import pagesAdmin.LoginPageAdm;
+import pagesAdmin.MemberPage;
 import pagesMember.LoginPageMember;
 
 public class FirstLoginMember extends BrowserSettings  {

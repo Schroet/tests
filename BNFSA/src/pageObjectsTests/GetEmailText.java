@@ -7,11 +7,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import junit.framework.Assert;
-import pages.AddClient;
-import pages.ClientDetails;
-import pages.Clients;
-import pages.LoginPageAdm;
-import pages.MemberPage;
+import pagesAdmin.AddClient;
+import pagesAdmin.ClientDetails;
+import pagesAdmin.Clients;
+import pagesAdmin.LoginPageAdm;
+import pagesAdmin.MemberPage;
 
 public class GetEmailText extends BrowserSettings {
 	

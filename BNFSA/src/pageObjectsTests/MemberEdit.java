@@ -21,11 +21,11 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
-import pages.AddClient;
-import pages.ClientDetails;
-import pages.Clients;
-import pages.LoginPageAdm;
-import pages.MemberPage;
+import pagesAdmin.AddClient;
+import pagesAdmin.ClientDetails;
+import pagesAdmin.Clients;
+import pagesAdmin.LoginPageAdm;
+import pagesAdmin.MemberPage;
 
 public class MemberEdit extends BrowserSettings {
 	
@@ -71,7 +71,7 @@ public class MemberEdit extends BrowserSettings {
 		
 	
 	        //Get the excel file.
-	        FileInputStream file = new FileInputStream(new File("C:/GIT/BNFSA/bin/emailsrandom.xls"));
+	        FileInputStream file = new FileInputStream(new File("bin/emailsrandom.xls"));
 	 
 	        //Get workbook for XLS file.
 	        HSSFWorkbook yourworkbook = new HSSFWorkbook(file);
@@ -99,7 +99,7 @@ public class MemberEdit extends BrowserSettings {
 	        file.close();
 	        //Where you want to save the updated sheet.
 	        FileOutputStream out = 
-	            new FileOutputStream(new File("C:/GIT/BNFSA/bin/emailsrandom.xls"));
+	            new FileOutputStream(new File("bin/emailsrandom.xls"));
 	        yourworkbook.write(out);
 	        out.close();
 	 

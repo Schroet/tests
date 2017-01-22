@@ -12,8 +12,8 @@ import org.openqa.selenium.WebDriver;
 
 import pageObjectsTests.GetEmailText;
 import pageObjectsTests.MemberEdit;
-import pages.AddClient;
-import pages.MemberPage;
+import pagesAdmin.AddClient;
+import pagesAdmin.MemberPage;
 
 public class LoginPageMember {
 	
@@ -91,6 +91,6 @@ public void PreConditionsMember(String pass) throws IOException{
 public void GetLoginPageMember(){
 	
 	driver.manage().window().maximize();
-	driver.get("http://portal.bnfsa.local/#/login");
+	driver.get("https://portal-qa.wtwbenefitsmarketplacefsa.com/#/login");
 }
 }

@@ -1,4 +1,4 @@
-package pages;
+package pagesAdmin;
 
 import org.junit.Test;
 import org.openqa.selenium.By;

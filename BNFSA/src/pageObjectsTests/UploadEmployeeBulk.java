@@ -15,11 +15,10 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
-
-import pages.AddClient;
-import pages.ClientDetails;
-import pages.Clients;
-import pages.LoginPageAdm;
+import pagesAdmin.AddClient;
+import pagesAdmin.ClientDetails;
+import pagesAdmin.Clients;
+import pagesAdmin.LoginPageAdm;
 
 public class UploadEmployeeBulk extends BrowserSettings {
 	
@@ -87,7 +86,10 @@ public class UploadEmployeeBulk extends BrowserSettings {
 	    
 		} catch (NoSuchElementException e) { test.log(LogStatus.ERROR, "Test not executed");}
 		  catch (ElementNotVisibleException e) {test.log(LogStatus.ERROR, "Test not executed");}
+		  catch (NullPointerException e) {test.log(LogStatus.ERROR, "Test not executed");}
 
+		extent.endTest(test);
+		screen.ScreenShot("TC6");
 	    extent.flush();
 		driver.quit();
 	}
