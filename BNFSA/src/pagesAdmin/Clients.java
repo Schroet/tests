@@ -10,9 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.LogStatus;
 
-
-
-import pageObjectsTests.UploadCredits;
+import adminportalTests.UploadCredits;
 
 public class Clients {
 	

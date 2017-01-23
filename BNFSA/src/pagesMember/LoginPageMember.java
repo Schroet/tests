@@ -10,8 +10,8 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import pageObjectsTests.GetEmailText;
-import pageObjectsTests.MemberEdit;
+import adminportalTests.GetEmailText;
+import adminportalTests.MemberEdit;
 import pagesAdmin.AddClient;
 import pagesAdmin.MemberPage;
 

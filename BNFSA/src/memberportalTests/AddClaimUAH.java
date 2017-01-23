@@ -11,8 +11,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
-import pageObjectsTests.BrowserSettings;
-import pageObjectsTests.TakeScreenshot;
+
+import adminportalTests.BrowserSettings;
+import adminportalTests.TakeScreenshot;
 import pagesAdmin.AddClient;
 import pagesMember.AddClaimPage;
 import pagesMember.LoginPageMember;

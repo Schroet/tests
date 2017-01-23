@@ -10,10 +10,10 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
-import pageObjectsTests.BrowserSettings;
-import pageObjectsTests.LinkAccount;
-import pageObjectsTests.Reader;
-import pageObjectsTests.TakeScreenshot;
+import adminportalTests.BrowserSettings;
+import adminportalTests.LinkAccount;
+import adminportalTests.Reader;
+import adminportalTests.TakeScreenshot;
 import pagesAdmin.AddClient;
 import pagesAdmin.LoginPageAdm;
 import pagesAdmin.MemberPage;

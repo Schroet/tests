@@ -12,7 +12,7 @@ import org.junit.Test;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 
-import pageObjectsTests.BrowserSettings;
+import adminportalTests.BrowserSettings;
 import pagesAdmin.AddClient;
 import pagesMember.LoginPageMember;
 import pagesMember.Summary;
