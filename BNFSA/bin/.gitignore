@@ -7,3 +7,8 @@
 *.png
 chromedriver.exe
 QA report.html
+/pagesMember/
+/pagesAdmin/
+/adminportalTests/
+/memberportalTests/
+/suitRunner/
