@@ -12,3 +12,4 @@ QA report.html
 /adminportalTests/
 /memberportalTests/
 /suitRunner/
+/phantomjs.exe
