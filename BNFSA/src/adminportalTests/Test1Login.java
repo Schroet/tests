@@ -40,10 +40,7 @@ public void Login2AdminPortal(){
 	try {
 	
     driver.manage().window().maximize();
-    login.GetLoginPage();
-    login.TypeUsername();
-    login.TypePassword();
-    login.ClickLoginButton();
+    login.PreConditions();
     test.log(LogStatus.INFO, "User logged");
     
     client.WaitForElement(); 

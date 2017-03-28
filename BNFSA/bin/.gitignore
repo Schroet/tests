@@ -10,3 +10,8 @@ QA report.html
 /phantomjs.exe
 MemberCredits.en-GB.xls
 Employees.en-GB.xls
+/adminportalTests/
+/memberportalTests/
+/pagesAdmin/
+/pagesMember/
+/suitRunner/
