@@ -35,7 +35,7 @@ private static ExtentReports extent;
 	MembersList list = new MembersList(driver);
 	
 	 try {
-			login.PreConditions("sys", "sys");
+			login.PreConditions();
 			
 			client.GotoClient();
 			details.ClickMemberButton();

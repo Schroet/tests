@@ -40,7 +40,7 @@ public class UploadCredits extends BrowserSettings {
 	TakeScreenshot screen = new TakeScreenshot(driver);
 	
 	 try {
-	login.PreConditions("sys", "sys");
+	login.PreConditions();
 	client.GotoClient();
 	details.OpenAccounts();
 	details.GotoAccounts();

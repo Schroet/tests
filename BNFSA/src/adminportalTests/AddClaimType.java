@@ -36,7 +36,7 @@ public class AddClaimType extends BrowserSettings {
 	
 	try {
 	
-	login.PreConditions("sys", "sys");
+	login.PreConditions();
 	client.GotoClient();
 	
 	details.ClickClaimTypesTab();

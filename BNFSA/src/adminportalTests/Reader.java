@@ -25,7 +25,7 @@ public class Reader {
 	    	
 	        InputStream in = new FileInputStream("C:/GIT/BNFSA/bin/emailsrandom.xls");
 	        // Внимание InputStream будет закрыт
-	        // Е�?ли нужно не закрывающий �?м. JavaDoc по POIFSFileSystem :  http://goo.gl/1Auu7
+	        // Е�?ли нужно не закрывающий �?м. JavaDoc по POIFSFileSystem :  http://goo.gl/1Auu7
 	        
 	        HSSFWorkbook wb = new HSSFWorkbook(in);
 	 
@@ -35,18 +35,11 @@ public class Reader {
 	        
 	        String text = extractor.getText();
 	        driver.findElement(login).sendKeys(text);
-			
-	 
-	        //System.out.println(text); 
+
 	        
 	    }
 
-	 /*   public static String Email() {
-	    	
-	    //	driver.findElement(login).sendKeys(GetEmail());
-	    	
-	    	return GetEmail();
-	    } */
+
 
 	}
 	

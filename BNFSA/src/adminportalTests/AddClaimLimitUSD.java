@@ -38,7 +38,7 @@ public class AddClaimLimitUSD extends BrowserSettings {
 	
 	try {
 		
-	login.PreConditions("sys", "sys");
+	login.PreConditions();
 	client.GotoClient();
 	details.ClickClaimTypesTab();
 	details.GotoClaimType();

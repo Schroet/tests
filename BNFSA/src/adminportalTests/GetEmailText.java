@@ -32,7 +32,7 @@ public class GetEmailText extends BrowserSettings {
 		MemberPage mempage = new MemberPage(driver);
 		AddClient waitmethod = new AddClient(driver);
 		
-		login.PreConditions("sys", "sys");
+		login.PreConditions();
 		client.GotoClient();
 		details.ClickMemberButton();
 		mempage.WaitVisible();

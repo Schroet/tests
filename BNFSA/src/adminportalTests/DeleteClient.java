@@ -31,7 +31,7 @@ public class DeleteClient extends BrowserSettings {
 	login.GetLoginPage();
 	driver.manage().window().maximize();
 	
-	login.LoginAdminPortal("sys", "sys");
+	login.LoginAdminPortal();
 	
 	
 	if(driver.getPageSource().contains("AAA")){

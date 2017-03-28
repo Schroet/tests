@@ -37,7 +37,7 @@ public class AddClaimLimitUAH extends BrowserSettings {
 	TakeScreenshot screen = new TakeScreenshot(driver);
 	
 	try {
-	login.PreConditions("sys", "sys");
+	login.PreConditions();
 	client.GotoClient();
 	details.ClickClaimTypesTab();
 	details.GotoClaimType();

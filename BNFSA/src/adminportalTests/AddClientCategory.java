@@ -31,7 +31,7 @@ public class AddClientCategory extends BrowserSettings {
 	
 	login.GetLoginPage();
 	driver.manage().window().maximize();
-	login.LoginAdminPortal("sys", "sys");
+	login.LoginAdminPortal();
 	client.GotoClient();
 	details.AddnewCategory("cat");
 	

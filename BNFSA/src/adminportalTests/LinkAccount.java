@@ -36,7 +36,7 @@ public class LinkAccount extends BrowserSettings {
 	AddClient waitmethod = new AddClient(driver);
 	TakeScreenshot screen = new TakeScreenshot(driver);
 	
-	login.PreConditions("sys", "sys");
+	login.PreConditions();
 	client.GotoClient();
 	
 	details.LinkFSAaccount();

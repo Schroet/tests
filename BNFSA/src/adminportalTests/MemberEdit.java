@@ -28,107 +28,101 @@ import pagesAdmin.LoginPageAdm;
 import pagesAdmin.MemberPage;
 
 public class MemberEdit extends BrowserSettings {
-	
+
 	private static ExtentReports extent;
 	String elementval;
 	String updatename;
-	
-	
 
 	@Test
-	public void MemberEditInfo() throws InterruptedException{
-		
+	public void MemberEditInfo() throws InterruptedException {
+
 		LaunchBrowser();
-		
-		 extent = new ExtentReports("bin/QA report.html", false);
-		 ExtentTest test = extent.startTest("TC13");
-		
+
+		extent = new ExtentReports("bin/QA report.html", false);
+		ExtentTest test = extent.startTest("TC13");
+
 		updatename = elementval;
 		LoginPageAdm login = new LoginPageAdm(driver);
 		Clients client = new Clients(driver);
-		AddClient addclient = new AddClient(driver);	
+		AddClient addclient = new AddClient(driver);
 		ClientDetails details = new ClientDetails(driver);
 		MemberPage mempage = new MemberPage(driver);
 		AddClient waitmethod = new AddClient(driver);
 		TakeScreenshot screen = new TakeScreenshot(driver);
-	
+
 		try {
 
-		login.PreConditions("sys", "sys");
-		client.GotoClient();
-		details.ClickMemberButton();
-		mempage.WaitVisible();
-		mempage.EditBtnClick();
-		mempage.AddEMail();
-		
-		mempage.SaveBtnClick();
-		mempage.WaitVisibleEditBtn();
-		mempage.EditBtn2Click();
-		Thread.sleep(2000);
-		WebElement element = driver.findElement(By.id("Member_Email"));
-		
-		String elementval = element.getAttribute("value");
-		
-	
-	        //Get the excel file.
-	        FileInputStream file = new FileInputStream(new File("bin/emailsrandom.xls"));
-	 
-	        //Get workbook for XLS file.
-	        HSSFWorkbook yourworkbook = new HSSFWorkbook(file);
-	 
-	        //Get first sheet from the workbook.
-	        
-	        //If there have >1 sheet in your workbook, you can change it here IF you want to edit other sheets.
-	        HSSFSheet sheet1 = yourworkbook.getSheetAt(0);
-	 
-	        // Get the row of your desired cell.
-	        // Let's say that your desired cell is at row 2.
-	        Row row = sheet1.getRow(0);
-	        // Get the column of your desired cell in your selected row.
-	        // Let's say that your desired cell is at column 2.
-	        Cell column = row.getCell(0);
-	        // If the cell is String type.If double or else you can change it.
-	        elementval = column.getStringCellValue();
-	        //New content for desired cell.
-	        elementval = element.getAttribute("value"); 
-	        //Print out the updated content.
-	        System.out.println(elementval);
-	        //Set the new content to your desired cell(column).
-	        column.setCellValue(elementval); 
-	        //Close the excel file.
-	        file.close();
-	        //Where you want to save the updated sheet.
-	        FileOutputStream out = 
-	            new FileOutputStream(new File("bin/emailsrandom.xls"));
-	        yourworkbook.write(out);
-	        out.close();
-	 
+			login.PreConditions();
+			client.GotoClient();
+			details.ClickMemberButton();
+			mempage.WaitVisible();
+			mempage.EditBtnClick();
+			mempage.AddEMail();
 
-		Thread.sleep(2000);
-		
-		  if(driver.getPageSource().contains("Edit")){
-		    	test.log(LogStatus.PASS, "Data was verify");
-		    	screen.ScreenShot("TC13");
-		    	extent.endTest(test);
-		    	}else{
-		    		test.log(LogStatus.FAIL, "Data was not verify");
-		    		extent.endTest(test);
-		    		screen.ScreenShot("TC13");
-		    	} 
+			mempage.SaveBtnClick();
+			mempage.WaitVisibleEditBtn();
+			mempage.EditBtn2Click();
+			Thread.sleep(2000);
+			WebElement element = driver.findElement(By.id("Member_Email"));
 
-		} catch (NoSuchElementException e) { test.log(LogStatus.ERROR, "Test not executed");	
-		}
-	catch (FileNotFoundException e) {
-        e.printStackTrace();
-    } catch (IOException e) {
-        e.printStackTrace();
-    };
-		
-		
-		   extent.flush();
-		   driver.quit();
-		  
+			String elementval = element.getAttribute("value");
+
+			// Get the excel file.
+			FileInputStream file = new FileInputStream(new File("bin/emailsrandom.xls"));
+
+			// Get workbook for XLS file.
+			HSSFWorkbook yourworkbook = new HSSFWorkbook(file);
+
+			// Get first sheet from the workbook.
+
+			// If there have >1 sheet in your workbook, you can change it here
+			// IF you want to edit other sheets.
+			HSSFSheet sheet1 = yourworkbook.getSheetAt(0);
+
+			// Get the row of your desired cell.
+			// Let's say that your desired cell is at row 2.
+			Row row = sheet1.getRow(0);
+			// Get the column of your desired cell in your selected row.
+			// Let's say that your desired cell is at column 2.
+			Cell column = row.getCell(0);
+			// If the cell is String type.If double or else you can change it.
+			elementval = column.getStringCellValue();
+			// New content for desired cell.
+			elementval = element.getAttribute("value");
+			// Print out the updated content.
+			System.out.println(elementval);
+			// Set the new content to your desired cell(column).
+			column.setCellValue(elementval);
+			// Close the excel file.
+			file.close();
+			// Where you want to save the updated sheet.
+			FileOutputStream out = new FileOutputStream(new File("bin/emailsrandom.xls"));
+			yourworkbook.write(out);
+			out.close();
+
+			Thread.sleep(2000);
+
+			if (driver.getPageSource().contains("Edit")) {
+				test.log(LogStatus.PASS, "Data was verify");
+				screen.ScreenShot("TC13");
+				extent.endTest(test);
+			} else {
+				test.log(LogStatus.FAIL, "Data was not verify");
+				extent.endTest(test);
+				screen.ScreenShot("TC13");
+			}
+
+		} catch (NoSuchElementException e) {
+			test.log(LogStatus.ERROR, "Test not executed");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		};
+
+		extent.flush();
+		driver.quit();
+
 	}
-	
-	
+
 }

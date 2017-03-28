@@ -32,7 +32,7 @@ public class AddNewClient extends BrowserSettings {
     AddClient addclient = new AddClient(driver);
     
     try {
-    login.LoginAdminPortal("sys", "sys");
+    login.LoginAdminPortal();
     clients.ClickAddСlientButton();
     addclient.TypeClient();
     addclient.TypeCountry();

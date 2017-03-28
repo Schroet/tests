@@ -41,7 +41,7 @@ public class ExceptionCatch extends BrowserSettings {
 	ExtentTest test = extent.startTest("TCX");
    	
 
-   	login.PreConditions("sys", "sys");
+   	login.PreConditions();
 	client.GotoClient(); 
 	
 	driver.findElement(By.xpath(".//*[@id='page-wrapper']/div[3]/div[2]/div/div/div[2]/form/div/div[18]/div/button")).click();

@@ -29,18 +29,18 @@ public class LoginPageAdm {
 		this.driver = driver;
 	}
 	
-public void PreConditions(String userid, String pass){
+public void PreConditions(){
 	
 	driver.manage().window().maximize();
 	GetLoginPage();
-	LoginAdminPortal(userid,pass);
+	LoginAdminPortal();
 	waitmethod.Waitsec();
 	}	
 
-public void LoginAdminPortal(String userid, String pass){
+public void LoginAdminPortal(){
 		
-		driver.findElement(username).sendKeys(userid);
-		driver.findElement(password).sendKeys(pass);
+		driver.findElement(username).sendKeys("bgworker");
+		driver.findElement(password).sendKeys("Hidden*Activity*32167#");
 		driver.findElement(loginButton).click();
 	}
 	

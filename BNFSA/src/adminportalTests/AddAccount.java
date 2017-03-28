@@ -34,7 +34,7 @@ public class AddAccount extends BrowserSettings {
 	
 	try {
 	
-	login.PreConditions("sys", "sys");
+	login.PreConditions();
 	client.GotoClient();
 	details.OpenAccounts();
 	details.ClickAddNewAccountButton();

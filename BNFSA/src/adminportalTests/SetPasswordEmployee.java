@@ -35,7 +35,7 @@ public class SetPasswordEmployee extends BrowserSettings {
 	ClaimLimitsPage limits = new ClaimLimitsPage(driver);
 	TakeScreenshot screen = new TakeScreenshot(driver);
 	
-	login.PreConditions("sys", "sys");
+	login.PreConditions();
 	client.GotoClient();
 	details.ClickMemberButton();
 	details.SetPass("123", "123");
