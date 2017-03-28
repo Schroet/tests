@@ -39,7 +39,7 @@ public class BrowserSettings {
     		caps.setCapability("takesScreenshot", true);  
     		caps.setCapability(
     		PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,
-    		"D:\\Тестирование\\PhantomJs\\phantomjs-2.1.1-windows\\bin\\phantomjs.exe"
+    		"C:\\GIT\\BNFSA\\bin\\phantomjs.exe"
     		                    );
     		driver = new  PhantomJSDriver(caps);
     		
