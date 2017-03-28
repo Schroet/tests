@@ -1,5 +1,5 @@
 .project
-
+.gitignore
 .settings
 .classpath
 .metadata
@@ -7,9 +7,6 @@
 *.png
 chromedriver.exe
 QA report.html
-/pagesMember/
-/pagesAdmin/
-/adminportalTests/
-/memberportalTests/
-/suitRunner/
 /phantomjs.exe
+MemberCredits.en-GB.xls
+Employees.en-GB.xls
