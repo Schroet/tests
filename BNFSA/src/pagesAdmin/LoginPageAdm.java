@@ -31,7 +31,6 @@ public class LoginPageAdm {
 	
 public void PreConditions(){
 	
-	driver.manage().window().maximize();
 	GetLoginPage();
 	LoginAdminPortal();
 	waitmethod.Waitsec();
@@ -39,9 +38,14 @@ public void PreConditions(){
 
 public void LoginAdminPortal(){
 		
-		driver.findElement(username).sendKeys("bgworker");
-		driver.findElement(password).sendKeys("Hidden*Activity*32167#");
+		driver.findElement(username).sendKeys("sys");
+		driver.findElement(password).sendKeys("sys");
 		driver.findElement(loginButton).click();
+		
+//		driver.findElement(username).sendKeys("bgworker");
+//		driver.findElement(password).sendKeys("Hidden*Activity*32167#");
+		
+		
 	}
 	
 	
@@ -88,7 +92,7 @@ public void TypePasswordEmail(){
 
 public void GetLoginPage(){
 	
-	driver.get("https://admin-qa.wtwbenefitsmarketplacefsa.com/Auth/SignIn");
+	driver.get("https://admin-qa.wtwbenefitsmarketplacefsa.com/Auth/SignIn?ReturnUrl=%2F");
 }
 
 }

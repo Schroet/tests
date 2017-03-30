@@ -13,8 +13,7 @@ public class Test2 {
 	public void test2 () {
 		
 		 	
-		 System.setProperty("webdriver.chrome.driver", "bin/chromedriver.exe");
-		 driver = new ChromeDriver();
+		 
 		 
 		 driver.get("http://www.google.com");
 		

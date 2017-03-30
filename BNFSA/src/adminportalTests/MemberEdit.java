@@ -36,8 +36,6 @@ public class MemberEdit extends BrowserSettings {
 	@Test
 	public void MemberEditInfo() throws InterruptedException {
 
-		LaunchBrowser();
-
 		extent = new ExtentReports("bin/QA report.html", false);
 		ExtentTest test = extent.startTest("TC13");
 
@@ -118,11 +116,10 @@ public class MemberEdit extends BrowserSettings {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
-		};
+		}
+		;
 
 		extent.flush();
-		driver.quit();
-
 	}
 
 }

@@ -18,7 +18,7 @@ public class DeleteClient extends BrowserSettings {
 	@Test
 	public void DeleteCl() throws InterruptedException{
 	
-	LaunchBrowser();
+	//LaunchBrowser();
     
 	extent = new ExtentReports("bin/QA report.html", false);
 	ExtentTest test = extent.startTest("TC2");
@@ -66,7 +66,6 @@ public class DeleteClient extends BrowserSettings {
 	    }
 	 
 	extent.flush();
-	driver.quit();
 	
 	}
 }

@@ -17,12 +17,9 @@ import pagesAdmin.LoginPageAdm;
 
 public class SetPasswordEmployee extends BrowserSettings {
 	
-	private static ExtentReports extent;
-	
+
 	@Test
 	public void UploadEmployees() throws InterruptedException, AWTException{
-	
-	LaunchBrowser();
 	
 	extent = new ExtentReports("bin/QA report.html", false);
 	ExtentTest test = extent.startTest("TC12");
@@ -43,7 +40,7 @@ public class SetPasswordEmployee extends BrowserSettings {
 	 if(driver.getPageSource().contains("Global ID")){
 			test.log(LogStatus.PASS, "Password was set");
 			screen.ScreenShot("TC12");
-			extent.endTest(test);
+			
 			
 	    	}else{
 	    		
@@ -52,10 +49,11 @@ public class SetPasswordEmployee extends BrowserSettings {
 	    		extent.endTest(test);
 	    	}
 	
-	} catch (NoSuchElementException e) { test.log(LogStatus.ERROR, "Test not executed");	
-	};
-
-	extent.flush();
-	driver.quit();
+		} catch (NoSuchElementException e) {
+			test.log(LogStatus.ERROR, "Test not executed");
+			extent.endTest(test);
+			
+		};
+	
 }
 }

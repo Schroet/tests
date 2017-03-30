@@ -22,14 +22,9 @@ import org.apache.commons.io.FileUtils;
 
 public class Test1Login extends BrowserSettings {
 	
-	private static ExtentReports extent;
-
-	
 @Test
 public void Login2AdminPortal(){
 	
-	LaunchBrowser();
-
     extent = new ExtentReports("bin/QA report.html", true);
     ExtentTest test = extent.startTest("TC1");
 	
@@ -39,7 +34,7 @@ public void Login2AdminPortal(){
 	
 	try {
 	
-    driver.manage().window().maximize();
+    
     login.PreConditions();
     test.log(LogStatus.INFO, "User logged");
     
@@ -54,9 +49,9 @@ public void Login2AdminPortal(){
     		extent.endTest(test);
     	} 
 
-	} catch (NoSuchElementException e) { test.log(LogStatus.ERROR, "Test not executed");	
+	} catch (NoSuchElementException e) { test.log(LogStatus.ERROR, "Test not executed");
+	  extent.endTest(test);
 	};
-    extent.flush();
-    driver.quit();	
+	
 }
 }

@@ -25,7 +25,7 @@ import memberportalTests.FirstLoginMember;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
 		
-Test1Login.class, //1
+Test1Login.class,
 DeleteClient.class,
 AddNewClient.class,
 AddClientCategory.class, 
