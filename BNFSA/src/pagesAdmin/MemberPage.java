@@ -7,8 +7,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import adminportalTests.MemberEdit;
-
 public class MemberPage {
 	
 	WebDriver driver;

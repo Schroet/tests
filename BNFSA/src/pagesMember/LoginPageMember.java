@@ -3,15 +3,11 @@ package pagesMember;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.Reader;
-
 import org.apache.poi.hssf.extractor.ExcelExtractor;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import adminportalTests.GetEmailText;
-import adminportalTests.MemberEdit;
 import pagesAdmin.AddClient;
 import pagesAdmin.MemberPage;
 

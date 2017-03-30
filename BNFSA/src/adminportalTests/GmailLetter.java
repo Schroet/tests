@@ -2,11 +2,7 @@ package adminportalTests;
 
 import java.util.*;  
 import javax.mail.*;  
-import javax.mail.internet.*;
-
-import org.junit.Test;
-
-import javax.activation.*;  
+import javax.mail.internet.*;  
 
 public class GmailLetter 
 {

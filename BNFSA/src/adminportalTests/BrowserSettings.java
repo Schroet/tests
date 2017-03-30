@@ -23,7 +23,7 @@ public class BrowserSettings {
 
 	String browser = "chrome";
 	// String browser="mozilla";
-	//String browser="PhantomJs";
+	// String browser="PhantomJs";
 
 	@Before
 	public void LaunchBrowser() {
@@ -60,11 +60,9 @@ public class BrowserSettings {
 	@After
 
 	public void CloseBrowser() {
-		
-		
+
 		extent.flush();
 		driver.close();
-		
 
 	}
 

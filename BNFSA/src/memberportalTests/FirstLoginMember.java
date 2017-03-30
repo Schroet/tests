@@ -1,6 +1,5 @@
 package memberportalTests;
 
-import java.awt.AWTException;
 import java.io.IOException;
 
 import org.junit.Test;
@@ -11,12 +10,8 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import adminportalTests.BrowserSettings;
-import adminportalTests.LinkAccount;
-import adminportalTests.Reader;
 import adminportalTests.TakeScreenshot;
 import pagesAdmin.AddClient;
-import pagesAdmin.LoginPageAdm;
-import pagesAdmin.MemberPage;
 import pagesMember.LoginPageMember;
 
 public class FirstLoginMember extends BrowserSettings  {

@@ -1,12 +1,9 @@
 package adminportalTests;
 
-import java.awt.List;
-
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import junit.framework.Assert;
 import pagesAdmin.AddClient;
 import pagesAdmin.ClientDetails;
 import pagesAdmin.Clients;
@@ -40,7 +37,7 @@ public class GetEmailText extends BrowserSettings {
 		
 		
 		WebElement element = driver.findElement(By.id("Member_Email"));
-		this.elementval = element.getAttribute("value");
+		GetEmailText.elementval = element.getAttribute("value");
 		
 		System.out.println(elementval);
 		driver.quit();

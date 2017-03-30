@@ -43,7 +43,7 @@ public class MembersList {
 		
 		driver.findElement(firstname).sendKeys("Adam");
 		driver.findElement(lastname).sendKeys("Morgan");
-		driver.findElement(email).sendKeys(mempage.randomEmail());
+		driver.findElement(email).sendKeys(MemberPage.randomEmail());
 		driver.findElement(emplnumber).sendKeys(RandomStringUtils.randomNumeric(6));
 		driver.findElement(genderfield).click();
 		waitmethod.Waitsec();

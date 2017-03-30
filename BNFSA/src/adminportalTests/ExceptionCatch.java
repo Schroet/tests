@@ -1,17 +1,9 @@
 package adminportalTests;
 
-import java.awt.AWTException;
-import java.util.NoSuchElementException;
-
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
-import com.relevantcodes.extentreports.LogStatus;
-
 import pagesAdmin.AddClient;
 import pagesAdmin.ClientDetails;
 import pagesAdmin.Clients;

@@ -17,7 +17,7 @@ public class Reader {
 	
        public Reader(WebDriver driver){
 		
-		this.driver = driver;
+		Reader.driver = driver;
 	}
        
      
