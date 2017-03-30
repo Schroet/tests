@@ -28,6 +28,7 @@ import pagesAdmin.MemberPage;
 public class MemberEdit extends BrowserSettings {
 
 	private static ExtentReports extent;
+	
 	String elementval;
 	String updatename;
 
@@ -59,8 +60,8 @@ public class MemberEdit extends BrowserSettings {
 			mempage.WaitVisibleEditBtn();
 			mempage.EditBtn2Click();
 			Thread.sleep(2000);
+			
 			WebElement element = driver.findElement(By.id("Member_Email"));
-
 			String elementval = element.getAttribute("value");
 
 			// Get the excel file.

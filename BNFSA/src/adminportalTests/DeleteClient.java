@@ -30,15 +30,12 @@ public class DeleteClient extends BrowserSettings {
 			if (driver.getPageSource().contains("AAA")) {
 
 				client.ClickDeleteСlient();
+				client.ClickDeleteСlientOk();
 
 			} else {
 
-				test.log(LogStatus.PASS, "Client AAA not exist");
 				screen.ScreenShot("TC2");
-				extent.endTest(test);
 			}
-
-			client.ClickDeleteСlientOk();
 
 			if (driver.getPageSource().contains("AAA")) {
 				client.ClickDeleteСlient();
