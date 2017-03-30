@@ -62,7 +62,7 @@ public class BrowserSettings {
 	public void CloseBrowser() {
 
 		extent.flush();
-		driver.close();
+		driver.quit();
 
 	}
 
