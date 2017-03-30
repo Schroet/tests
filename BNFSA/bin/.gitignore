@@ -1,0 +1,12 @@
+.project
+.gitignore
+.settings
+.classpath
+.metadata
+*.xls
+*.png
+chromedriver.exe
+QA report.html
+/phantomjs.exe
+MemberCredits.en-GB.xls
+Employees.en-GB.xls
