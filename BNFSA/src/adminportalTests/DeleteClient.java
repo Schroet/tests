@@ -16,7 +16,7 @@ public class DeleteClient extends BrowserSettings {
 	@Test
 	public void DeleteCl() throws InterruptedException {
 
-		extent = new ExtentReports("bin/QA report.html", false);
+		extent = new ExtentReports("src/QA report.html", false);
 		ExtentTest test = extent.startTest("TC2");
 		TakeScreenshot screen = new TakeScreenshot(driver);
 

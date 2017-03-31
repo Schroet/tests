@@ -39,7 +39,7 @@ public class Clients {
 	public void WaitForElement(){
 	 WebDriverWait wait = new WebDriverWait(driver, 10);
 		WebElement element = wait.until(
-		ExpectedConditions.visibilityOfElementLocated(editclient));
+		ExpectedConditions.elementToBeClickable(editclient));
 	}
 	
 	public void GotoClient(){

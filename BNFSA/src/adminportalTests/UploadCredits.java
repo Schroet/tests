@@ -20,76 +20,74 @@ import pagesAdmin.LoginPageAdm;
 
 public class UploadCredits extends BrowserSettings {
 	
-	private static ExtentReports extent;
-	
 	@Test
-	public void UploadEmployees() throws InterruptedException, AWTException{
-	
-	LaunchBrowser();
-	
-	extent = new ExtentReports("bin/QA report.html", false);
-	ExtentTest test = extent.startTest("TC7");
-	
-   	LoginPageAdm login = new LoginPageAdm(driver);
-	Clients client = new Clients(driver);
-	ClientDetails details = new ClientDetails(driver);
-	AddClient waitmethod = new AddClient(driver);
-	TakeScreenshot screen = new TakeScreenshot(driver);
-	
-	 try {
-	login.PreConditions();
-	client.GotoClient();
-	details.OpenAccounts();
-	details.GotoAccounts();
-	details.AccountFundingClick();
-	details.ChooseCreditsClick();
-	
-    StringSelection ss = new StringSelection("C:\\GIT\\BNFSA\\bin\\bulks\\MemberCredits.en-GB.xls");  
-    waitmethod.Waitsec();
-    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
-   
-    Robot robot = new Robot();
-    
-    waitmethod.Waitsec();
-    robot.keyPress(KeyEvent.VK_CONTROL);
-    waitmethod.Waitsec();
-    robot.keyPress(KeyEvent.VK_V);
-    waitmethod.Waitsec();
-    robot.keyRelease(KeyEvent.VK_V);
-    waitmethod.Waitsec();
-    robot.keyRelease(KeyEvent.VK_CONTROL);
-    waitmethod.Waitsec();
-    robot.keyPress(KeyEvent.VK_ENTER);
-    waitmethod.Waitsec();
-    robot.keyRelease(KeyEvent.VK_ENTER);
-    
-    details.CreditSubmitClick();
-	details.SeccessfulCredClick();
-	details.CreditsCancelClick();
-	details.GotoAccounts();
-	details.TransactionClick();
-	
-	 if(driver.getPageSource().contains("2500")){
-			test.log(LogStatus.PASS, "Credit added was added");
-			screen.ScreenShot("TC7");
+	public void UploadEmployees() throws InterruptedException, AWTException {
+
+		extent = new ExtentReports("src/QA report.html", false);
+		ExtentTest test = extent.startTest("TC7 - Upload credits");
+
+		LoginPageAdm login = new LoginPageAdm(driver);
+		Clients client = new Clients(driver);
+		ClientDetails details = new ClientDetails(driver);
+		AddClient waitmethod = new AddClient(driver);
+		TakeScreenshot screen = new TakeScreenshot(driver);
+
+		try {
+			login.PreConditions();
+			client.GotoClient();
+			details.OpenAccounts();
+			details.GotoAccounts();
+			details.AccountFundingClick();
+			details.ChooseCreditsClick();
+
+			StringSelection ss = new StringSelection("C:\\bulks\\MemberCredits.en-GB.xls");
+			waitmethod.Waitsec();
+			Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
+
+			Robot robot = new Robot();
+
+			waitmethod.Waitsec();
+			robot.keyPress(KeyEvent.VK_CONTROL);
+			waitmethod.Waitsec();
+			robot.keyPress(KeyEvent.VK_V);
+			waitmethod.Waitsec();
+			robot.keyRelease(KeyEvent.VK_V);
+			waitmethod.Waitsec();
+			robot.keyRelease(KeyEvent.VK_CONTROL);
+			waitmethod.Waitsec();
+			robot.keyPress(KeyEvent.VK_ENTER);
+			waitmethod.Waitsec();
+			robot.keyRelease(KeyEvent.VK_ENTER);
+
+			details.CreditSubmitClick();
+			details.SeccessfulCredClick();
+			details.CreditsCancelClick();
+			details.GotoAccounts();
+			details.TransactionClick();
+
+			if (driver.getPageSource().contains("1250")) {
+				test.log(LogStatus.PASS, "Credit added was added");
+				screen.ScreenShot("TC7");
+				extent.endTest(test);
+
+			} else {
+
+				test.log(LogStatus.FAIL, "Credit not added");
+				screen.ScreenShot("TC7");
+				extent.endTest(test);
+
+			}
+
+		} catch (NoSuchElementException e) {
+			test.log(LogStatus.ERROR, "Test not executed");
 			extent.endTest(test);
-			
-	    	}else{
-	    		
-	    		test.log(LogStatus.FAIL, "Credit not added");
-	    		screen.ScreenShot("TC7");
-	    		extent.endTest(test);
-	    		
-	    	}
-	 
-	 } catch (NoSuchElementException e) { test.log(LogStatus.ERROR, "Test not executed");}
-	   catch (ElementNotVisibleException e) {test.log(LogStatus.ERROR, "Test not executed");}
-	   catch (NullPointerException e) {test.log(LogStatus.ERROR, "Test not executed");}
-		
-		
-		screen.ScreenShot("TC7");
-		extent.endTest(test);	
-	 extent.flush();
-	 driver.quit();
-}
+		} catch (ElementNotVisibleException e) {
+			test.log(LogStatus.ERROR, "Test not executed");
+			extent.endTest(test);
+		} catch (NullPointerException e) {
+			test.log(LogStatus.ERROR, "Test not executed");
+			extent.endTest(test);
+		}
+
+	}
 }

@@ -4,8 +4,9 @@
 .metadata
 *.xls
 *.png
-bin/chromedriver.exe
-bin/QA report.html
-bin/phantomjs.exe
+src/resourses/chromedriver.exe
+src/resourses/QA report.html
+src/resourses/phantomjs.exe
+src/resourses/*.xls
 bin/MemberCredits.en-GB.xls
 bin/Employees.en-GB.xls

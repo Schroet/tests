@@ -27,15 +27,14 @@ import pagesAdmin.MemberPage;
 
 public class MemberEdit extends BrowserSettings {
 
-	private static ExtentReports extent;
-	
+
 	String elementval;
 	String updatename;
 
 	@Test
 	public void MemberEditInfo() throws InterruptedException {
 
-		extent = new ExtentReports("bin/QA report.html", false);
+		extent = new ExtentReports("src/QA report.html", false);
 		ExtentTest test = extent.startTest("TC13");
 
 		updatename = elementval;
@@ -65,7 +64,7 @@ public class MemberEdit extends BrowserSettings {
 			String elementval = element.getAttribute("value");
 
 			// Get the excel file.
-			FileInputStream file = new FileInputStream(new File("bin/emailsrandom.xls"));
+			FileInputStream file = new FileInputStream(new File("src/resources/emailsrandom.xls"));
 
 			// Get workbook for XLS file.
 			HSSFWorkbook yourworkbook = new HSSFWorkbook(file);
@@ -93,7 +92,7 @@ public class MemberEdit extends BrowserSettings {
 			// Close the excel file.
 			file.close();
 			// Where you want to save the updated sheet.
-			FileOutputStream out = new FileOutputStream(new File("bin/emailsrandom.xls"));
+			FileOutputStream out = new FileOutputStream(new File("src/resources/emailsrandom.xls"));
 			yourworkbook.write(out);
 			out.close();
 
@@ -113,12 +112,13 @@ public class MemberEdit extends BrowserSettings {
 			test.log(LogStatus.ERROR, "Test not executed");
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
+			extent.endTest(test);
 		} catch (IOException e) {
 			e.printStackTrace();
+			extent.endTest(test);
 		}
 		;
 
-		extent.flush();
 	}
 
 }

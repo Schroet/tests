@@ -15,14 +15,10 @@ import pagesAdmin.LoginPageAdm;
 
 public class LinkAccount extends BrowserSettings {
 	
-	private static ExtentReports extent;
-
 	@Test
 	public void UploadEmployees() throws InterruptedException, AWTException {
 
-		LaunchBrowser();
-
-		extent = new ExtentReports("bin/QA report.html", false);
+		extent = new ExtentReports("src/QA report.html", false);
 		ExtentTest test = extent.startTest("TC9");
 
 		try {
@@ -51,9 +47,9 @@ public class LinkAccount extends BrowserSettings {
 
 		} catch (NoSuchElementException e) {
 			test.log(LogStatus.ERROR, "Test not executed");
+			extent.endTest(test);
 		}
 		;
-		extent.flush();
-		driver.quit();
+
 	}
 }
