@@ -1,0 +1,11 @@
+.project
+.settings
+.classpath
+.metadata
+*.xls
+*.png
+bin/chromedriver.exe
+bin/QA report.html
+bin/phantomjs.exe
+bin/MemberCredits.en-GB.xls
+bin/Employees.en-GB.xls
