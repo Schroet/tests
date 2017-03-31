@@ -22,7 +22,7 @@ import pagesAdmin.AddClient;
    By currencyfield= By.xpath(".//*[@id='currency']");
    By currencyvalueusd= By.xpath(".//*[@id='currency']/option[3]");
    By receiptamount= By.xpath(".//*[@id='amount']");
-   By claimsubmit= By.xpath(".//*[@id='addClaim']/form/div/div/div[20]/div/div/button[1]");
+   By claimsubmit= By.xpath(".//*[@id='addClaim']/form/loading-spinner/div/ng-transclude/div/div/div[20]/div/div/button[1]");
 
 
    AddClient waitmethod = new AddClient(driver);

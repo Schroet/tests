@@ -23,7 +23,7 @@ public class BrowserSettings {
 
 	//String browser = "chrome";
 	//String browser="mozilla";
-	 String browser="PhantomJs";
+	String browser="PhantomJs";
 
 	@Before
 	public void LaunchBrowser() {

@@ -65,7 +65,7 @@ public void LoginMemberPortal( String pass) throws IOException{
 
 public void GetEmail() throws IOException{
 	
-    InputStream in = new FileInputStream("src/resources/emailsrandom.xls");
+    InputStream in = new FileInputStream("src/resourses/emailsrandom.xls");
   
     HSSFWorkbook wb = new HSSFWorkbook(in);
 
@@ -81,6 +81,7 @@ public void GetEmail() throws IOException{
 public void PreConditionsMember(String pass) throws IOException{
 	
 	LoginMemberPortal(pass);
+	waitmethod.Waitsec();
 	
 };
 

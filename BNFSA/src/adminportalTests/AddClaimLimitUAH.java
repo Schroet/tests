@@ -20,8 +20,6 @@ public class AddClaimLimitUAH extends BrowserSettings {
 	@Test
 	public void UploadEmployees() throws InterruptedException, AWTException {
 
-		LaunchBrowser();
-
 		extent = new ExtentReports("src/QA report.html", false);
 		ExtentTest test = extent.startTest("TC10");
 

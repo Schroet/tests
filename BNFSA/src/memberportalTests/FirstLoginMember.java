@@ -16,16 +16,13 @@ import pagesMember.LoginPageMember;
 
 public class FirstLoginMember extends BrowserSettings  {
 	
-	private static ExtentReports extent;
 	
 	@Test
 	public void FirstLoginMemberTest() throws IOException{
 		
 	AddClient client = new AddClient(driver);
 	
-	LaunchBrowser();
-	
-	extent = new ExtentReports("bin/QA report.html", false);
+	extent = new ExtentReports("src/QA report.html", false);
 	ExtentTest test = extent.startTest("TCM-1");
    	
    	LoginPageMember loginmember = new LoginPageMember(driver);
@@ -49,10 +46,9 @@ public class FirstLoginMember extends BrowserSettings  {
     		extent.endTest(test);
     		
     	} 
-   	}catch (NoSuchElementException e) { test.log(LogStatus.ERROR, "Test not executed");	
+   	}catch (NoSuchElementException e) { test.log(LogStatus.ERROR, "Test not executed");
+   	 extent.endTest(test);
     }; 		
 
-    extent.flush();
-	driver.quit();
 	}
 }

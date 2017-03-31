@@ -184,7 +184,7 @@ WebDriver driver;
     //nav buttons
 	
 	By members = By.xpath("/html/body/div[1]/div[1]/div[1]/nav/div[2]/div[1]/ul/li[3]/a");
-	By gotomember = By.xpath(".//*[@id='Members']/table/tbody/tr/td[1]/a");
+	By gotomember = By.cssSelector("#Members>table>tbody>tr>td>a");
 	By setpassword = By.xpath(".//*[@id='tab-details']/div/div[2]/button");
 	By setpassfield = By.xpath(".//*[@id='inputPassword']");
 	By confirmpass = By.xpath(".//*[@id='inputConfirmPassword']");
