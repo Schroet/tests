@@ -12,14 +12,12 @@ import pagesAdmin.LoginPageAdm;
 
 public class AddNewClient extends BrowserSettings {
 	
-	private static ExtentReports extent;
-	
 	@Test
 	public void Login2AdminPortal() throws InterruptedException{	
 		
 	//LaunchBrowser();
 	    
-	extent = new ExtentReports("bin/QA report.html", false);
+	extent = new ExtentReports("src/QA report.html", false);
 	ExtentTest test = extent.startTest("TC3");
 	
 	LoginPageAdm login = new LoginPageAdm(driver);
@@ -55,10 +53,10 @@ public class AddNewClient extends BrowserSettings {
     		extent.endTest(test);
     		screen.ScreenShot("TC3");
     	}
-	} catch (NoSuchElementException e) { test.log(LogStatus.ERROR, "Test not executed");	
+	} catch (NoSuchElementException e) { test.log(LogStatus.ERROR, "Test not executed");
+	  extent.endTest(test);
 	};
 
-    extent.flush();
    
 	}
 }

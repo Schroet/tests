@@ -14,16 +14,14 @@ public class Test1Login extends BrowserSettings {
 @Test
 public void Login2AdminPortal(){
 	
-    extent = new ExtentReports("bin/QA report.html", true);
-    ExtentTest test = extent.startTest("TC1");
+    extent = new ExtentReports("src/QA report.html", true);
+    ExtentTest test = extent.startTest("TC1 - Log in");
 	
 	LoginPageAdm login = new LoginPageAdm(driver);
 	TakeScreenshot screen = new TakeScreenshot(driver);
 	Clients client = new Clients(driver);
 	
 	try {
-	
-    
     login.PreConditions();
     test.log(LogStatus.INFO, "User logged");
     

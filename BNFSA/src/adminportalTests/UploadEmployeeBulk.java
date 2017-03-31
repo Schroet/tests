@@ -20,14 +20,12 @@ import pagesAdmin.LoginPageAdm;
 
 public class UploadEmployeeBulk extends BrowserSettings {
 	
-	private static ExtentReports extent;
-	
 	@Test
 	public void UploadEmployees() throws InterruptedException, AWTException{
 		
 		LaunchBrowser();
 		
-		extent = new ExtentReports("bin/QA report.html", false);
+		extent = new ExtentReports("src/QA report.html", false);
 		ExtentTest test = extent.startTest("TC6");
 		
 	   	LoginPageAdm login = new LoginPageAdm(driver);
@@ -44,7 +42,7 @@ public class UploadEmployeeBulk extends BrowserSettings {
 		details.ClickImportEmployeeButton();
 		details.ClickChooseFile();
 		
-	    StringSelection ss = new StringSelection("C:\\GIT\\BNFSA\\bin\\bulks\\Employees.en-GB.xls");  
+	    StringSelection ss = new StringSelection("C:\\bulks\\Employees.en-GB.xls");  
 	    waitmethod.Waitsec();
 	    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
 	    Robot robot = new Robot();
@@ -82,13 +80,16 @@ public class UploadEmployeeBulk extends BrowserSettings {
 	    		screen.ScreenShot("TC6");
 	    	}
 	    
-		} catch (NoSuchElementException e) { test.log(LogStatus.ERROR, "Test not executed");}
-		  catch (ElementNotVisibleException e) {test.log(LogStatus.ERROR, "Test not executed");}
-		  catch (NullPointerException e) {test.log(LogStatus.ERROR, "Test not executed");}
+		} catch (NoSuchElementException e) {
+			test.log(LogStatus.ERROR, "Test not executed");
+			extent.endTest(test);
+		} catch (ElementNotVisibleException e) {
+			test.log(LogStatus.ERROR, "Test not executed");
+			extent.endTest(test);
+		} catch (NullPointerException e) {
+			test.log(LogStatus.ERROR, "Test not executed");
+			extent.endTest(test);
+		}
 
-		extent.endTest(test);
-		screen.ScreenShot("TC6");
-	    extent.flush();
-		driver.quit();
 	}
 }

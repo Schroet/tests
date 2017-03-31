@@ -21,9 +21,9 @@ public class BrowserSettings {
 	public ExtentReports extent;
 	public ExtentTest test;
 
-	String browser = "chrome";
-	// String browser="mozilla";
-	// String browser="PhantomJs";
+	//String browser = "chrome";
+	//String browser="mozilla";
+	 String browser="PhantomJs";
 
 	@Before
 	public void LaunchBrowser() {
@@ -36,7 +36,7 @@ public class BrowserSettings {
 
 		else if (browser.equalsIgnoreCase("chrome")) {
 
-			System.setProperty("webdriver.chrome.driver", "bin/chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", "src/resourses/chromedriver.exe");
 			driver = new ChromeDriver();
 			driver.manage().window().maximize();
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -48,7 +48,7 @@ public class BrowserSettings {
 			caps.setJavascriptEnabled(true);
 			caps.setCapability("takesScreenshot", true);
 			caps.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,
-					"C:\\GIT\\BNFSA\\bin\\phantomjs.exe");
+					"C://GIT//BNFSA//src//resourses//phantomjs.exe");
 			driver = new PhantomJSDriver(caps);
 
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);

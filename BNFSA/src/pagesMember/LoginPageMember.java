@@ -65,7 +65,7 @@ public void LoginMemberPortal( String pass) throws IOException{
 
 public void GetEmail() throws IOException{
 	
-    InputStream in = new FileInputStream("bin/emailsrandom.xls");
+    InputStream in = new FileInputStream("src/resources/emailsrandom.xls");
   
     HSSFWorkbook wb = new HSSFWorkbook(in);
 
