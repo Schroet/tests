@@ -1,3 +1,7 @@
 /QA report.html
 /.gitignore
-/resourses/
+/adminportalTests/
+/memberportalTests/
+/pagesAdmin/
+/pagesMember/
+/suitRunner/
