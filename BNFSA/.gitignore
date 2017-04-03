@@ -10,3 +10,5 @@ src/resourses/phantomjs.exe
 src/resourses/*.xls
 bin/MemberCredits.en-GB.xls
 bin/Employees.en-GB.xls
+phantomjsdriver.log
+src/Qa report.html
