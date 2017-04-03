@@ -3,6 +3,10 @@ package pagesMember;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import pagesAdmin.AddClient;
 
    public class AddClaimPage {
@@ -23,8 +27,10 @@ import pagesAdmin.AddClient;
    By currencyvalueusd= By.xpath(".//*[@id='currency']/option[3]");
    By receiptamount= By.xpath(".//*[@id='amount']");
    By claimsubmit= By.xpath(".//*[@id='addClaim']/form/loading-spinner/div/ng-transclude/div/div/div[20]/div/div/button[1]");
-
-
+   
+   By editamount= By.xpath(".//*[@id='editClaim']/form/loading-spinner/div/ng-transclude/div/div/div[10]/div[1]/input");
+   By editsubmit= By.xpath(".//*[@id='editClaim']/form/loading-spinner/div/ng-transclude/div/div/div[20]/div/div/button[1]");
+   
    AddClient waitmethod = new AddClient(driver);
    LoginPageMember loginmem = new LoginPageMember(driver);
    Summary sum = new Summary(driver);
@@ -32,7 +38,6 @@ import pagesAdmin.AddClient;
 	
 	
    public void AddNewClaimUAH(){
-		
 		
 		driver.findElement(claimtypefield).click();
 		waitmethod.Waitsec();
@@ -50,4 +55,26 @@ import pagesAdmin.AddClient;
 		waitmethod.Waitsec();
 		//wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@id='addClaimButton']")));
 	};
+	
+	public void EditClaimUAH(){
+		
+		WaitEditSubmit();
+		driver.findElement(editamount).clear();
+		driver.findElement(editamount).sendKeys("95");
+		driver.findElement(editsubmit).click();
+		WaitEditSubmit();
+	}
+	
+	public void WaitAddbtn() {
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(claimsubmit));
+
+	}
+	
+	public void WaitEditSubmit() {
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(editsubmit));
+
+	}
+	
 }
