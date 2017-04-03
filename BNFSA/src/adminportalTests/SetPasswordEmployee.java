@@ -40,6 +40,7 @@ public class SetPasswordEmployee extends BrowserSettings {
 			if (driver.getPageSource().contains("Global ID")) {
 				test.log(LogStatus.PASS, "Password was set");
 				screen.ScreenShot("TC12");
+				extent.endTest(test);
 
 			} else {
 
