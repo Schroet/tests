@@ -23,7 +23,8 @@ public class Summary {
 	By print = By.xpath(".//*[@id='main']/div[3]/div/button");
 	By addnewclaim = By.xpath("html/body/client-settings/div[2]/div/div[2]/div[2]/button[4]");
 	String btnprint = ".//*[@id='main']/div[3]/div/button"; 
-	String addClaimButton = "#addClaimButton"; 
+	String addClaimButton = "html/body/client-settings/div[2]/div/div[2]/div[2]/button[4]"; 
+	
 	
     public Summary(WebDriver driver){
 		this.driver = driver;
@@ -74,8 +75,8 @@ public void AccDetAddNewClaim(){
 public void WaitAddclaimbtn(){
 	 WebDriverWait wait = new WebDriverWait(driver, 10);
 		WebElement element = wait.until(
-		ExpectedConditions.elementToBeClickable(clickadd));
-		waitmethod.Waitsec();
+		ExpectedConditions.elementToBeClickable(addnewclaim));
+		
 	}
 
 
