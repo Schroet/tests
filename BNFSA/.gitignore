@@ -1,6 +1,7 @@
 .project
 .settings
 .classpath
+.gitignore
 .metadata
 *.xls
 *.png
@@ -10,3 +11,4 @@ src/resourses/phantomjs.exe
 src/resourses/*.xls
 bin/MemberCredits.en-GB.xls
 bin/Employees.en-GB.xls
+BrowserSettings.java
