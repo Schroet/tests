@@ -23,7 +23,7 @@ import pagesMember.Summary;
 
 public class AddClaimUAH extends BrowserSettings {
 	
-	@Test
+	//@Test
 	public void AddClaim() throws Exception {
 
 		extent = new ExtentReports("src/QA report.html", false);
@@ -88,15 +88,13 @@ public class AddClaimUAH extends BrowserSettings {
 			sumpage.ViewAccoountDetails();
 			accdet.ClicktoEditbtn();
 			addclaimpage.EditClaimUAH();
-			send.execute("QA report.html");
 			
-			if (driver.getPageSource().contains("Your claim was updated and submitted successfully")) {
+			
+			if (driver.getPageSource().contains("Pending Claims")) {
 				screen.ScreenShot("TCM-3");
-				test.log(LogStatus.PASS, "Claim edited");
+				test.log(LogStatus.PASS, "Claim was edited");
 				extent.endTest(test);
-
 			} else {
-
 				screen.ScreenShot("TCM-3");
 				test.log(LogStatus.FAIL, "Claim not edited");
 				extent.endTest(test);
@@ -106,6 +104,8 @@ public class AddClaimUAH extends BrowserSettings {
 		test.log(LogStatus.ERROR, "Test not executed");
 		extent.endTest(test);
 	};
+	
+	send.execute("QA report.html");
 		
 	}
 }
