@@ -16,8 +16,8 @@ public class GmailLetter {
 	public static void execute(String reportFileName) throws Exception
 
 	{
-		//String path = "C:\\Users\\Shroet\\BNFSA\\BNFSA\\src\\QA report.html";
-		String path = "C:\\GIT\\BNFSA\\src\\QA report.html";
+		String path = "C:\\Users\\Shroet\\BNFSA\\BNFSA\\src\\QA report.html";
+		//String path = "C:\\GIT\\BNFSA\\src\\QA report.html";
 
 		String[] to = { "avel@diceus.com" };
 		String[] cc = {};
