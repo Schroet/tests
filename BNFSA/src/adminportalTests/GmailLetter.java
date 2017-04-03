@@ -16,15 +16,15 @@ public class GmailLetter {
 	public static void execute(String reportFileName) throws Exception
 
 	{
-		String path = "C:\\Users\\Shroet\\BNFSA\\BNFSA\\src\\QA report.html";
-		//String path = "C:\\GIT\\BNFSA\\src\\QA report.html";
+		//String path = "C:\\Users\\Shroet\\BNFSA\\BNFSA\\src\\QA report.html";
+		String path = "C:\\GIT\\BNFSA\\src\\QA report.html";
 
 		String[] to = { "avel@diceus.com" };
 		String[] cc = {};
 		String[] bcc = {};
 
 		GmailLetter.sendMail("qatestfsa@gmail.com", "qatestfsa77", "smtp.gmail.com", "465", "true", "true", true,
-				"javax.net.ssl.SSLSocketFactory", "false", to, cc, bcc, "QA Test report" + date, "Hi, Please check a latest test report.", path,
+				"javax.net.ssl.SSLSocketFactory", "false", to, cc, bcc, "QA Test report " + date, "Hi, Please check a latest test report.", path,
 				reportFileName);
 	}
 	

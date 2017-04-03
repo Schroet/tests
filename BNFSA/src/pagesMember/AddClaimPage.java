@@ -62,7 +62,8 @@ import pagesAdmin.AddClient;
 		driver.findElement(editamount).clear();
 		driver.findElement(editamount).sendKeys("95");
 		driver.findElement(editsubmit).click();
-		WaitEditSubmit();
+		waitmethod.Waitsec();
+		waitmethod.Waitsec();
 	}
 	
 	public void WaitAddbtn() {
