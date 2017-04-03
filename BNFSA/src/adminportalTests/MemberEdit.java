@@ -10,6 +10,7 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.util.SystemOutLogger;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -56,15 +57,17 @@ public class MemberEdit extends BrowserSettings {
 			mempage.AddEMail();
 
 			mempage.SaveBtnClick();
-			mempage.WaitVisibleEditBtn();
-			mempage.EditBtn2Click();
+//			mempage.WaitVisibleEditBtn();
+//			mempage.EditBtn2Click();
 			Thread.sleep(2000);
 			
-			WebElement element = driver.findElement(By.id("Member_Email"));
-			String elementval = element.getAttribute("value");
+//			WebElement element = driver.findElement(By.cssSelector(".table.table-striped.table-bordered>tbody>tr>td"));
+			String element = driver.findElement(By.xpath("html/body/div[1]/div[1]/div[3]/div[2]/div/div[2]/div/div[1]/div/div[1]/table/tbody/tr[10]/td[2]")).getText();
+			
+//			String elementval = element.getAttribute("value");
 
 			// Get the excel file.
-			FileInputStream file = new FileInputStream(new File("src/resources/emailsrandom.xls"));
+			FileInputStream file = new FileInputStream(new File("src/resourses/emailsrandom.xls"));
 
 			// Get workbook for XLS file.
 			HSSFWorkbook yourworkbook = new HSSFWorkbook(file);
@@ -84,7 +87,8 @@ public class MemberEdit extends BrowserSettings {
 			// If the cell is String type.If double or else you can change it.
 			elementval = column.getStringCellValue();
 			// New content for desired cell.
-			elementval = element.getAttribute("value");
+			//elementval = element.getAttribute("value");
+			elementval = element;
 			// Print out the updated content.
 			System.out.println(elementval);
 			// Set the new content to your desired cell(column).
@@ -92,7 +96,7 @@ public class MemberEdit extends BrowserSettings {
 			// Close the excel file.
 			file.close();
 			// Where you want to save the updated sheet.
-			FileOutputStream out = new FileOutputStream(new File("src/resources/emailsrandom.xls"));
+			FileOutputStream out = new FileOutputStream(new File("src/resourses/emailsrandom.xls"));
 			yourworkbook.write(out);
 			out.close();
 

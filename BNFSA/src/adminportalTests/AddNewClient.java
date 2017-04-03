@@ -14,9 +14,7 @@ public class AddNewClient extends BrowserSettings {
 	
 	@Test
 	public void Login2AdminPortal() throws InterruptedException{	
-		
-	//LaunchBrowser();
-	    
+		   
 	extent = new ExtentReports("src/QA report.html", false);
 	ExtentTest test = extent.startTest("TC3");
 	

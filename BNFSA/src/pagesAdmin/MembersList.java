@@ -31,7 +31,7 @@ public class MembersList {
 	By emplnumber = By.xpath(".//*[@id='Member_EmployeeNumber']");
 	By save = By.xpath(".//*[@id='add_member_form']/div[2]/div/button");
 	By editbtn = By.xpath(".//*[@id='Members']/table/tbody/tr[1]/td[4]/a");
-	By emplname = By.xpath(".//*[@id='Members']/table/tbody/tr[1]/td[1]/a");
+	By emplname = By.xpath("html/body/div[1]/div[1]/div[3]/div[2]/div/div/div[3]/div/table/tbody/tr[3]/td[3]/a");
 	
 	public void ClickAddEmplBtn(){
 		
@@ -56,6 +56,12 @@ public class MembersList {
 		 WebDriverWait wait = new WebDriverWait(driver, 10);
 			WebElement element = wait.until(
 			ExpectedConditions.visibilityOfElementLocated(emplname));
+		}
+	
+	public void WaitAddbtn(){
+		 WebDriverWait wait = new WebDriverWait(driver, 10);
+			WebElement element = wait.until(
+			ExpectedConditions.visibilityOfElementLocated(addemployeebtn));
 		}
 	
 	

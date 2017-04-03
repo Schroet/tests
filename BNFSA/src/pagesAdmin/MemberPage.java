@@ -19,9 +19,9 @@ public class MemberPage {
 	AddClient addclient = new AddClient(driver);
 	
 	By gomember = By.xpath(".//*[@id='Members']/table/tbody/tr/td[1]/a");
-	By editbtn = By.xpath(".//*[@id='Members']/table/tbody/tr/td[4]/a");
+	By editbtn = By.xpath("html/body/div[1]/div[1]/div[3]/div[2]/div/div/div[3]/div/table/tbody/tr[1]/td[8]/a");
 	By emailfld = By.xpath(".//*[@id='Member_Email']");
-	String memnun = ".//*[@id='Members']/table/tbody/tr/td[1]/a";
+	String memnun = "html/body/div[1]/div[1]/div[3]/div[2]/div/div/div[3]/div/table/tbody/tr[1]/td[3]/a";
 	String addclbtn = ".//*[@id='tab-details']/div/div[2]/a[1]";
 	String editbutton = ".//*[@id='tab-details']/div/div[2]/a[2]";
 	By emailfldlog = By.xpath(".//*[@id='page']/div/div/div/div/div/section/form/fieldset/div[1]/div/input");

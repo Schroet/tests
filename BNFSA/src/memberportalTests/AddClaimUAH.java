@@ -13,6 +13,7 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import adminportalTests.BrowserSettings;
+import adminportalTests.GmailLetter;
 import adminportalTests.TakeScreenshot;
 import pagesAdmin.AddClient;
 import pagesMember.AddClaimPage;
@@ -21,49 +22,46 @@ import pagesMember.Summary;
 
 public class AddClaimUAH extends BrowserSettings {
 	
-	private static ExtentReports extent;
-	
 	@Test
-	public void UploadEmployees() throws IOException{
-	
-	LaunchBrowser();
-	
-	extent = new ExtentReports("bin/QA report.html", false);
-	ExtentTest test = extent.startTest("TCM-2");
-   	
-   	LoginPageMember loginmember = new LoginPageMember(driver);
-   	Summary sumpage = new Summary(driver);
-   	AddClaimPage addclaimpage = new AddClaimPage(driver);
-   	AddClient waitmethod = new AddClient(driver);
-   	TakeScreenshot screen = new TakeScreenshot(driver);
-   	
-	try {
-   	loginmember.PreConditionsMember("123");
-   	//wait.until(ExpectedConditions.elementToBeClickable(By.id("addClaimButton")));
-   	
-    WebDriverWait wait = new WebDriverWait(driver, 10);
-    WebElement element = wait.until(
-    ExpectedConditions.visibilityOfElementLocated(By.id("addClaimButton")));
-    
-   	sumpage.ClickBtnAddnewClaim();
-   	addclaimpage.AddNewClaimUAH();
-   	waitmethod.Waitsec();
-   	
-    if(driver.getPageSource().contains("Summary")){
-    	screen.ScreenShot("TCM-2");
-  		test.log(LogStatus.PASS, "Claim added");
-  		extent.endTest(test);
-  		
-      	}else{
-      		
-      		screen.ScreenShot("TCM-2");
-      		test.log(LogStatus.FAIL, "Claim not added");
-      		extent.endTest(test);
-      	}
-    
-	}catch (NoSuchElementException e) { test.log(LogStatus.ERROR, "Test not executed");	
-    }; 
-    extent.flush();
-	driver.quit();
+	public void UploadEmployees() throws Exception {
+
+		extent = new ExtentReports("src/QA report.html", false);
+		ExtentTest test = extent.startTest("TCM-2");
+
+		LoginPageMember loginmember = new LoginPageMember(driver);
+		Summary sumpage = new Summary(driver);
+		AddClaimPage addclaimpage = new AddClaimPage(driver);
+		AddClient waitmethod = new AddClient(driver);
+		TakeScreenshot screen = new TakeScreenshot(driver);
+		GmailLetter send = new GmailLetter();
+
+		try {
+			loginmember.PreConditionsMember("123");
+
+			sumpage.WaitAddclaimbtn();
+			sumpage.ViewAccoountDetails();
+			sumpage.AccDetAddNewClaim();
+			waitmethod.Waitsec();
+			addclaimpage.AddNewClaimUAH();
+			waitmethod.Waitsec();
+			
+			send.execute("QA report.html");
+
+			if (driver.getPageSource().contains("Summary")) {
+				screen.ScreenShot("TCM-2");
+				test.log(LogStatus.PASS, "Claim added");
+				extent.endTest(test);
+
+			} else {
+
+				screen.ScreenShot("TCM-2");
+				test.log(LogStatus.FAIL, "Claim not added");
+				extent.endTest(test);
+			}
+
+		} catch (NoSuchElementException e) {
+			test.log(LogStatus.ERROR, "Test not executed");
+			extent.endTest(test);
+		};
 	}
 }

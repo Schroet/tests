@@ -36,6 +36,7 @@ public class AddNewEmployee extends BrowserSettings {
 			
 			client.GotoClient();
 			details.ClickMemberButton();
+			list.WaitAddbtn();
 			list.ClickAddEmplBtn();
 			list.AddNewEmpl();
 			list.WaitEditbtn();
