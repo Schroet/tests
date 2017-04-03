@@ -1,5 +1,7 @@
 package adminportalTests;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 import javax.activation.DataHandler;
@@ -22,9 +24,13 @@ public class GmailLetter {
 		String[] bcc = {};
 
 		GmailLetter.sendMail("qatestfsa@gmail.com", "qatestfsa77", "smtp.gmail.com", "465", "true", "true", true,
-				"javax.net.ssl.SSLSocketFactory", "false", to, cc, bcc, "QA Test report", "Hi, Please check a latest test report.", path,
+				"javax.net.ssl.SSLSocketFactory", "false", to, cc, bcc, "QA Test report" + date, "Hi, Please check a latest test report.", path,
 				reportFileName);
 	}
+	
+	DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm");
+	static Date date = new Date();
+	
 
 	public static boolean sendMail(String userName, String passWord, String host, String port, String starttls,
 			String auth, boolean debug, String socketFactoryClass, String fallback, String[] to, String[] cc,

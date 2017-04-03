@@ -23,7 +23,7 @@ import pagesMember.Summary;
 
 public class AddClaimUAH extends BrowserSettings {
 	
-	//@Test
+	@Test
 	public void AddClaim() throws Exception {
 
 		extent = new ExtentReports("src/QA report.html", false);
