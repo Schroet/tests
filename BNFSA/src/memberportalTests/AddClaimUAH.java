@@ -38,6 +38,7 @@ public class AddClaimUAH extends BrowserSettings {
 		try {
 			loginmember.PreConditionsMember("123");
 
+			sumpage.WaitPrintSum();
 			sumpage.WaitAddclaimbtn();
 			sumpage.ViewAccoountDetails();
 			sumpage.WaitAddclaimbtn();
