@@ -86,7 +86,4 @@ public void WaitAddclaimbtn(){
 		
 	}
 
-
-
-
 }
