@@ -71,7 +71,7 @@ public void AccDetAddNewClaim(){
 public void WaitPrintSum(){
 	 WebDriverWait wait = new WebDriverWait(driver, 10);
 		WebElement element = wait.until(
-		ExpectedConditions.elementToBeClickable(print));
+		ExpectedConditions.presenceOfElementLocated(print));
 		
 	}
 
