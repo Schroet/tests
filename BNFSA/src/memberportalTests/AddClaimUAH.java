@@ -13,6 +13,7 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import adminportalTests.BrowserSettings;
+import adminportalTests.GmailLetter;
 import adminportalTests.TakeScreenshot;
 import pagesAdmin.AddClient;
 import pagesMember.AddClaimPage;
@@ -22,7 +23,7 @@ import pagesMember.Summary;
 public class AddClaimUAH extends BrowserSettings {
 	
 	@Test
-	public void UploadEmployees() throws IOException {
+	public void UploadEmployees() throws Exception {
 
 		extent = new ExtentReports("src/QA report.html", false);
 		ExtentTest test = extent.startTest("TCM-2");
@@ -32,6 +33,7 @@ public class AddClaimUAH extends BrowserSettings {
 		AddClaimPage addclaimpage = new AddClaimPage(driver);
 		AddClient waitmethod = new AddClient(driver);
 		TakeScreenshot screen = new TakeScreenshot(driver);
+		GmailLetter send = new GmailLetter();
 
 		try {
 			loginmember.PreConditionsMember("123");
@@ -42,6 +44,8 @@ public class AddClaimUAH extends BrowserSettings {
 			waitmethod.Waitsec();
 			addclaimpage.AddNewClaimUAH();
 			waitmethod.Waitsec();
+			
+			send.execute("QA report.html");
 
 			if (driver.getPageSource().contains("Summary")) {
 				screen.ScreenShot("TCM-2");

@@ -3,6 +3,7 @@ package adminportalTests;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -20,10 +21,11 @@ public class BrowserSettings {
 	public WebDriver driver = null;
 	public ExtentReports extent;
 	public ExtentTest test;
+	
 
-	//String browser = "chrome";
+	String browser = "chrome";
 	//String browser="mozilla";
-	String browser="PhantomJs";
+	//String browser="PhantomJs";
 
 	@Before
 	public void LaunchBrowser() {
@@ -65,5 +67,12 @@ public class BrowserSettings {
 		driver.quit();
 
 	}
+	
+//	@AfterClass
+//	public static void tearDownAfterClass() throws Exception {
+//		
+//		GmailLetter send = new GmailLetter();
+//		send.execute("QA report.html");
+//	}
 
 }
