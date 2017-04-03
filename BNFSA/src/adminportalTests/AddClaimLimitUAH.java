@@ -35,7 +35,7 @@ public class AddClaimLimitUAH extends BrowserSettings {
 			client.GotoClient();
 			details.ClickClaimTypesTab();
 			details.GotoClaimType();
-			limits.AddClaimLimitUAH("100", "2", "10", "20");
+			limits.AddClaimLimitUAH("100", "19", "10", "20");
 
 			if (driver.getPageSource().contains("Edit")) {
 				test.log(LogStatus.PASS, "Limit was added");

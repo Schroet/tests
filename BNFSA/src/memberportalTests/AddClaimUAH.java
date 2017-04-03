@@ -16,14 +16,15 @@ import adminportalTests.BrowserSettings;
 import adminportalTests.GmailLetter;
 import adminportalTests.TakeScreenshot;
 import pagesAdmin.AddClient;
+import pagesMember.AccountDetails;
 import pagesMember.AddClaimPage;
 import pagesMember.LoginPageMember;
 import pagesMember.Summary;
 
 public class AddClaimUAH extends BrowserSettings {
 	
-	@Test
-	public void UploadEmployees() throws Exception {
+	//@Test
+	public void AddClaim() throws Exception {
 
 		extent = new ExtentReports("src/QA report.html", false);
 		ExtentTest test = extent.startTest("TCM-2");
@@ -33,7 +34,6 @@ public class AddClaimUAH extends BrowserSettings {
 		AddClaimPage addclaimpage = new AddClaimPage(driver);
 		AddClient waitmethod = new AddClient(driver);
 		TakeScreenshot screen = new TakeScreenshot(driver);
-		GmailLetter send = new GmailLetter();
 
 		try {
 			loginmember.PreConditionsMember("123");
@@ -46,7 +46,7 @@ public class AddClaimUAH extends BrowserSettings {
 			addclaimpage.AddNewClaimUAH();
 			waitmethod.Waitsec();
 			
-			send.execute("QA report.html");
+			
 
 			if (driver.getPageSource().contains("Summary")) {
 				screen.ScreenShot("TCM-2");
@@ -64,5 +64,48 @@ public class AddClaimUAH extends BrowserSettings {
 			test.log(LogStatus.ERROR, "Test not executed");
 			extent.endTest(test);
 		};
+	}
+	
+	@Test
+	public void ClaimEdit() throws Exception {
+		
+		extent = new ExtentReports("src/QA report.html", false);
+		ExtentTest test = extent.startTest("TCM-3");
+		
+		LoginPageMember loginmember = new LoginPageMember(driver);
+		Summary sumpage = new Summary(driver);
+		AddClaimPage addclaimpage = new AddClaimPage(driver);
+		AddClient waitmethod = new AddClient(driver);
+		TakeScreenshot screen = new TakeScreenshot(driver);
+		GmailLetter send = new GmailLetter();
+		AccountDetails accdet = new AccountDetails(driver);
+		
+		try {
+			
+			loginmember.PreConditionsMember("123");
+			
+			sumpage.WaitPrintSum();
+			sumpage.ViewAccoountDetails();
+			accdet.ClicktoEditbtn();
+			addclaimpage.EditClaimUAH();
+			send.execute("QA report.html");
+			
+			if (driver.getPageSource().contains("Your claim was updated and submitted successfully")) {
+				screen.ScreenShot("TCM-3");
+				test.log(LogStatus.PASS, "Claim edited");
+				extent.endTest(test);
+
+			} else {
+
+				screen.ScreenShot("TCM-3");
+				test.log(LogStatus.FAIL, "Claim not edited");
+				extent.endTest(test);
+			}
+			
+	} catch (NoSuchElementException e) {
+		test.log(LogStatus.ERROR, "Test not executed");
+		extent.endTest(test);
+	};
+		
 	}
 }
