@@ -40,6 +40,7 @@ public class AddClaimUAH extends BrowserSettings {
 
 			sumpage.WaitAddclaimbtn();
 			sumpage.ViewAccoountDetails();
+			sumpage.WaitAddclaimbtn();
 			sumpage.AccDetAddNewClaim();
 			waitmethod.Waitsec();
 			addclaimpage.AddNewClaimUAH();
